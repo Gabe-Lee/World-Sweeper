@@ -76,6 +76,7 @@
     "build": "webpack --config webpack.config.js -p && node ./dist/server/server.js & live-server --open=/ --watch=dist --wait=1000 --proxy=/:http://127.0.0.1:3333"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.2",
     "axios": "^0.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
