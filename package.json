@@ -1,7 +1,7 @@
 {
   "name": "your-repo-name",
   "version": "1.0.0",
-  "main": "webpack.config.js",
+  "main": "server.js",
   "repository": "[YOUR_REPO_URL]",
   "author": "[YOUR_NAME]",
   "license": "[YOUR_LICENSE]",
@@ -58,7 +58,7 @@
     "transform": {
       ".+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "**/*\\.(test|spec)\\.tsx?$",
+    "testRegex": "^.+\\.(test|spec)\\.tsx?$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -71,7 +71,7 @@
   "scripts": {
     "test": "jest --runInBand",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "watch": "webpack --config webpack.config.js -d --watch & nodemon ./dist/server/server.js --delay 2000ms & live-server --open=/ --watch=dist --wait=3000 --proxy=/:http://127.0.0.1:3333 & jest --runInBand --watch",
+    "watch": "webpack --config webpack.config.js -d --watch & nodemon dist/server/server.js --delay 2000ms & live-server --open=/ --watch=dist --wait=3000 --proxy=/:http://127.0.0.1:3333 & jest --runInBand --watch",
     "start": "webpack --config webpack.config.js -d && node ./dist/server/server.js & live-server --open=/ --watch=dist --wait=1000 --proxy=/:http://127.0.0.1:3333",
     "build": "webpack --config webpack.config.js -p && node ./dist/server/server.js & live-server --open=/ --watch=dist --wait=1000 --proxy=/:http://127.0.0.1:3333"
   },
