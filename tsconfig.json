@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "lib": ["es6", "dom"],
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedParameters": true,

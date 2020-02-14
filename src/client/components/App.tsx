@@ -1,15 +1,6 @@
-import React from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { dark, light } from './style/themes';
+import React, { ReactElement } from 'react';
 
-const App = (): JSX.Element => {
-  const prefersDarkTheme = useMediaQuery('(prefers-color-scheme: dark)');
-
-  return (
-    <ThemeProvider theme={prefersDarkTheme ? dark : light}>
-      <div id="app">HELLO WORLD</div>
-    </ThemeProvider>
-  );
+const App = (): ReactElement => {
+  return <div id="app">HELLO WORLD</div>;
 };
 export default App;
