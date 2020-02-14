@@ -1,10 +1,10 @@
 {
-  "name": "your-repo-name",
+  "name": "world-sweeper",
   "version": "1.0.0",
   "main": "server.js",
-  "repository": "[YOUR_REPO_URL]",
-  "author": "[YOUR_NAME]",
-  "license": "[YOUR_LICENSE]",
+  "repository": "https://github.com/Gabe-Lee/World-Sweeper",
+  "author": "Gabriel Anderson",
+  "license": "MIT",
   "prettier": {
     "semi": true,
     "trailingComma": "all",
