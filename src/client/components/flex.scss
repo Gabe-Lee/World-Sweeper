@@ -1,0 +1,51 @@
+@mixin flex-width($size, $max) {
+  @for $x from 1 to $max + 1 {
+    .flex-#{$size}-#{$x} {
+      display: inline-block;
+      flex: 0 0 percentage(1 / $x);
+    }
+  }
+}
+
+@mixin grid-margins($max) {
+  @for $x from 1 to $max + 1 {
+    $r: $x * 0.5rem;
+    &.space-#{$x} {
+      margin: $r 0 0 $r;
+      & > * {
+        padding: 0 $r $r 0;
+      }
+      &::after {margin-bottom: -$r;}
+    }
+  }
+}
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  @include grid-margins(10);
+}
+
+// Extra-Small < 400px (Small Phones)
+@include flex-width("xs", 12);
+
+// Small >= 400px (Large Phones)
+@media screen and (min-width: 400px) {
+  @include flex-width("sm", 12);
+}
+
+// Medium >= 600px (Tablets)
+@media screen and (min-width: 600px) {
+  @include flex-width("md", 12);
+}
+
+// Large >= 1000px (Large Tablets/Small Laptops)
+@media screen and (min-width: 1000px) {
+  @include flex-width("lg", 12);
+}
+
+// Extra-Large >= 1400px (Desktops)
+@media screen and (min-width: 1400px) {
+  @include flex-width("xl", 12);
+}
+
