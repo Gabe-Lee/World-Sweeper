@@ -1,17 +1,21 @@
 import React, { ReactElement } from 'react';
 
-import './normalize.scss';
-import './flex.scss';
+import FlexGrid from './generic/FlexGrid';
+import FlexItem from './generic/FlexItem';
 
 const App = (): ReactElement => {
   return (
     <>
       <div id="app">HELLO WORLD</div>
-      <div className="grid space-1">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
-          <div className="flex-xs-1 flex-md-2 flex-lg-4">{num}</div>
-        ))}
-      </div>
+      <FlexGrid gap={4}>
+        <FlexItem xs={1} md={2} lg={4}>
+          1
+        </FlexItem>
+        <FlexItem xs={1} md={2} lg={4}>
+          2
+        </FlexItem>
+      </FlexGrid>
+      <div>Next Div</div>
     </>
   );
 };

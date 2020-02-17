@@ -1,0 +1,65 @@
+.debug-divs {
+  &:nth-child(odd) {outline: 2px solid blue;}
+  &:nth-child(even) {outline: 2px solid darkblue;}
+  & > * {
+    &:nth-child(odd) {outline: 2px solid teal;}
+    &:nth-child(even) {outline: 2px solid darkslategray;}
+    & > * {
+      &:nth-child(odd) {outline: 2px solid green;}
+      &:nth-child(even) {outline: 2px solid rgb(1, 73, 1);}
+      & > * {
+        &:nth-child(odd) {outline: 2px solid gold;}
+        &:nth-child(even) {outline: 2px solid darkgoldenrod;}
+        & > * {
+          &:nth-child(odd) {outline: 2px solid orange;}
+          &:nth-child(even) {outline: 2px solid rgb(192, 126, 3);}
+          & > * {
+            &:nth-child(odd) {outline: 2px solid red;}
+            &:nth-child(even) {outline: 2px solid darkred;}
+            & > * {
+              &:nth-child(odd) {outline: 2px solid palevioletred;}
+              &:nth-child(even) {outline: 2px solid purple;}
+              & > * {
+                &:nth-child(odd) {outline: 2px solid rgb(198, 130, 238);}
+                &:nth-child(even) {outline: 2px solid rgb(83, 0, 139);}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.debug-divs-alt {
+  &:nth-child(odd) {background: blue;}
+  &:nth-child(even) {background: darkblue;}
+  & > * {
+    &:nth-child(odd) {background: teal;}
+    &:nth-child(even) {background: darkslategray;}
+    & > * {
+      &:nth-child(odd) {background: green;}
+      &:nth-child(even) {background: rgb(1, 73, 1);}
+      & > * {
+        &:nth-child(odd) {background: gold;}
+        &:nth-child(even) {background: darkgoldenrod;}
+        & > * {
+          &:nth-child(odd) {background: orange;}
+          &:nth-child(even) {background: rgb(192, 126, 3);}
+          & > * {
+            &:nth-child(odd) {background: red;}
+            &:nth-child(even) {background: darkred;}
+            & > * {
+              &:nth-child(odd) {background: palevioletred;}
+              &:nth-child(even) {background: purple;}
+              & > * {
+                &:nth-child(odd) {background: rgb(198, 130, 238);}
+                &:nth-child(even) {background: rgb(83, 0, 139);}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
