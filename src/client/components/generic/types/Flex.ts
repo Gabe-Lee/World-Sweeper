@@ -8,6 +8,7 @@ export type Flow = 'row' | 'row-rev' | 'col' | 'col-rev';
 export type Wrap = 'nowrap' | 'wrap' | 'wrap-rev';
 
 export type FlexValues = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type GapValues = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 
 export type TFlexGrid = {
   align?: Align;

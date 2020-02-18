@@ -39,17 +39,3 @@ export enum size {
   p25 = 'p25', // 25%
   p50 = 'p50', // 50%
 }
-
-export type TSizeValues = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-
-type TThemeStandard = 'standard' | 'standard-light' | 'standard-lighter' | 'standard-dark' | 'standard-darker';
-type TThemePrime = 'prime' | 'prime-light' | 'prime-lighter' | 'prime-dark' | 'prime-darker';
-type TThemeAccent = 'accent' | 'accent-light' | 'accent-lighter' | 'accent-dark' | 'accent-darker';
-type TThemeAlter = 'alter' | 'alter-light' | 'alter-lighter' | 'alter-dark' | 'alter-darker';
-type TThemeAltAccent =
-  | 'alt-accent'
-  | 'alt-accent-light'
-  | 'alt-accent-lighter'
-  | 'alt-accent-dark'
-  | 'alt-accent-darker';
-export type TTheme = TThemeStandard | TThemePrime | TThemeAccent | TThemeAlter | TThemeAltAccent;
