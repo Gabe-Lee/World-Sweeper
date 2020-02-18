@@ -1,31 +1,18 @@
-import React, { HTMLAttributes } from 'react';
-import { selectBoolClass, joinClasses, ReactStyles, Theme, Border, Rounded, Padding } from '../../utils';
+import React, { HTMLAttributes, DetailedHTMLProps } from 'react';
+import { TFlex, processFlexClasses } from './types/Flex';
+import { TTheme, processThemeClasses } from './types/Theme';
+import { TDiv } from './types/Intrinsic';
 
-export interface PSurface extends HTMLAttributes<HTMLDivElement> {
-  // Look and feel
-  colors?: Theme;
-  border?: Border;
-  rounded?: Rounded;
-  padding?: Padding;
-  lifted?: boolean;
-  fill?: boolean;
-}
+export type TSurface = {
+  theme?: TTheme;
+  flex?: TFlex;
+};
 
-const Surface: (props: PSurface) => JSX.Element = ({
-  className,
-  children,
-  colors = Theme.standard,
-  border = Border.md,
-  rounded = Rounded.sm,
-  padding = Padding.md,
-  fill,
-  lifted,
-  ...div
-}) => {
-  const _lifted = lifted ? 'lifted' : '';
-  const _fill = fill ? 'fill' : '';
+const Surface: (props: TSurface & TDiv) => JSX.Element = ({ className, children, theme = {}, flex = {}, ...div }) => {
+  const flexClasses = processFlexClasses(flex);
+  const themeClasses = processThemeClasses(theme);
   return (
-    <div {...div} className={joinClasses('surface', colors, border, rounded, padding, _lifted, _fill, className)}>
+    <div {...div} className={['surface', flexClasses, themeClasses, className].join(' ')}>
       {children}
     </div>
   );

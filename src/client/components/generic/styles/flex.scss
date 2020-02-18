@@ -1,0 +1,89 @@
+$bp-values: 0px, 400px, 600px, 1000px, 1400px;
+$bp-names: 'xs', 'sm', 'md', 'lg', 'xl';
+
+@mixin flex-child-width($gap, $size, $breakpoint, $max) {
+  @media screen and (min-width: $breakpoint) {
+    & > .flex.#{$size}-0 {
+      display: none;
+      flex: 0 0 0px;
+    }
+    @for $x from 1 to $max + 1 {
+      & > .flex.#{$size}-#{$x} {
+        flex: 0 0 calc(#{percentage(1 / $x)} - #{2 * $gap});
+        margin: $gap;
+      }
+      & > .flex.#{$size}r-#{$x} {
+        flex: $x $x auto;
+        margin: $gap;
+      }
+    }
+  }
+}
+
+@mixin flex-grid-spacing($max) {
+  @for $x from 0 to $max + 1 {
+    $gap: $x * 0.25rem;
+    &.gap-#{$x} {
+      padding: $gap;
+      &.unmargin {margin: -2 * $gap;}
+      @include flex-child-width($gap, nth($bp-names, 1), nth($bp-values, 1), 12);
+      @include flex-child-width($gap, nth($bp-names, 2), nth($bp-values, 2), 12);
+      @include flex-child-width($gap, nth($bp-names, 3), nth($bp-values, 3), 12);
+      @include flex-child-width($gap, nth($bp-names, 4), nth($bp-values, 4), 12);
+      @include flex-child-width($gap, nth($bp-names, 5), nth($bp-values, 5), 12);
+    }
+  }
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+}
+
+.flex {
+  // Defaults
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  flex: 1 1 100%;
+  align-self: stretch;
+  padding: 0px;
+  margin: 0px;
+
+  // Self alignment
+  &.self-fill {align-self: stretch;}
+  &.self-start {align-self: flex-start;}
+  &.self-center {align-self: center;}
+  &.self-end {align-self: flex-end;}
+  // Row/Reverse (default) Alignment
+  &.top {align-content: flex-start;}
+  &.middle {align-content: center;}
+  &.bottom {align-content: flex-end;}
+  &.left {justify-content: flex-start;}
+  &.center {justify-content: center;}
+  &.right {justify-content: flex-end;}
+  // Col/Reverse Alignment
+  &.col, &.col-rev {
+    &.top {justify-content: flex-start;}
+    &.middle {justify-content: center;}
+    &.bottom {justify-content: flex-end;}
+    &.left {align-content: flex-start;}
+    &.center {align-content: center;}
+    &.right {align-content: flex-end;}
+  }
+  // Direction
+  &.row {flex-direction: row;}
+  &.row-rev {flex-direction: row-reverse;}
+  &.col {flex-direction: column;}
+  &.col-rev {flex-direction: column-reverse;}
+  // Wrapping
+  &.nowrap {flex-wrap: nowrap;}
+  &.wrap {flex-wrap: wrap;}
+  &.wrap-rev {flex-wrap: wrap-reverse;}
+  // Spacing between flex children
+  @include flex-grid-spacing(6);
+}
+
+

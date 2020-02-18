@@ -40,32 +40,16 @@ export enum size {
   p50 = 'p50', // 50%
 }
 
-export enum Border {
-  sm = 'bord-sm',
-  md = 'bord-md',
-  lg = 'bord-lg',
-}
+export type TSizeValues = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export enum Rounded {
-  sm = 'round-sm',
-  md = 'round-md',
-  lg = 'round-lg',
-  pill = 'round-pill',
-}
-
-export enum Padding {
-  sm = 'pad-sm',
-  md = 'pad-md',
-  lg = 'pad-lg',
-}
-
-export enum Theme {
-  standard = 'color-standard',
-  prime = 'color-prime',
-  alter = 'color-alter',
-  pAccent = 'color-prime-accent',
-  aAccent = 'color-alter-accent',
-  dPrime = 'color-prime-dark',
-  dAlter = 'color-alter-dark',
-  clash = 'color-clash',
-}
+type TThemeStandard = 'standard' | 'standard-light' | 'standard-lighter' | 'standard-dark' | 'standard-darker';
+type TThemePrime = 'prime' | 'prime-light' | 'prime-lighter' | 'prime-dark' | 'prime-darker';
+type TThemeAccent = 'accent' | 'accent-light' | 'accent-lighter' | 'accent-dark' | 'accent-darker';
+type TThemeAlter = 'alter' | 'alter-light' | 'alter-lighter' | 'alter-dark' | 'alter-darker';
+type TThemeAltAccent =
+  | 'alt-accent'
+  | 'alt-accent-light'
+  | 'alt-accent-lighter'
+  | 'alt-accent-dark'
+  | 'alt-accent-darker';
+export type TTheme = TThemeStandard | TThemePrime | TThemeAccent | TThemeAlter | TThemeAltAccent;

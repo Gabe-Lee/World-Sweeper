@@ -1,34 +1,23 @@
-import React, { ButtonHTMLAttributes, Children } from 'react';
-import { selectBoolClass, joinClasses, ReactStyles, size, Theme, Border, Rounded, Padding } from '../../utils';
+import React from 'react';
+import { TFlex, processFlexClasses } from './types/Flex';
+import { TTheme, processThemeClasses } from './types/Theme';
+import { TButton } from './types/Intrinsic';
+import { TSurface } from './Surface';
 
-export interface PButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  // Look and feel
-  colors?: Theme;
-  border?: Border;
-  rounded?: Rounded;
-  padding?: Padding;
-  lifted?: boolean;
-  fill?: boolean;
-}
-
-const Button: (props: PButton) => JSX.Element = ({
-  colors = Theme.standard,
-  border,
-  rounded = Rounded.md,
-  padding = Padding.md,
-  children,
+const Button: (props: TSurface & TButton) => JSX.Element = ({
   className,
-  lifted,
-  fill,
+  children,
+  theme = {},
+  flex = {},
   ...button
 }) => {
-  const lift = lifted ? 'lifted' : '';
-  const _fill = fill ? 'fill' : '';
+  const flexClasses = processFlexClasses(flex);
+  const themeClasses = processThemeClasses(theme);
   return (
     <button
       type="button"
       {...button}
-      className={joinClasses('button hvr act', colors, border, rounded, padding, lift, _fill, className)}
+      className={['surface button depress', flexClasses, themeClasses, className].join(' ')}
     >
       {children}
     </button>
