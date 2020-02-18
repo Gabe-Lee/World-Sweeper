@@ -77,7 +77,7 @@ const FlexGrid: (props: PFlexGrid) => JSX.Element = ({
   const sUnmargin = unmargin ? 'unmargin' : '';
   return (
     <div
-      className={joinClasses(['flex-grid', vAlign, hAlign, dir, sWrap, sGap, sUnmargin, className])}
+      className={joinClasses('flex-grid', vAlign, hAlign, dir, sWrap, sGap, sUnmargin, className)}
       id={id || undefined}
       style={style}
     >

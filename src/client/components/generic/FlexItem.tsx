@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { selectBoolClass, joinClasses, ReactStyles } from '../../utils';
 
 export interface PFlexItem {
@@ -47,7 +47,7 @@ const FlexItem: (props: PFlexItem) => JSX.Element = ({
     <div
       id={id || undefined}
       style={style}
-      className={joinClasses(['flex-item', align, _xs, _sm, _md, _lg, _xl, className])}
+      className={joinClasses('flex-item', align, _xs, _sm, _md, _lg, _xl, className)}
     >
       {children}
     </div>
