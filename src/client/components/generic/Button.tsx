@@ -1,6 +1,6 @@
 import React from 'react';
-import { TFlex, processFlexClasses } from './types/Flex';
-import { TTheme, processThemeClasses } from './types/Theme';
+import { processFlexClasses } from './types/Flex';
+import { processThemeClasses } from './types/Theme';
 import { TButton } from './types/Intrinsic';
 import { TSurface } from './Surface';
 

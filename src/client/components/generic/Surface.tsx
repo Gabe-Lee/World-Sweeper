@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, DetailedHTMLProps } from 'react';
+import React from 'react';
 import { TFlex, processFlexClasses } from './types/Flex';
 import { TTheme, processThemeClasses } from './types/Theme';
 import { TDiv } from './types/Intrinsic';

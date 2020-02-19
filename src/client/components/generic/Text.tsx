@@ -1,18 +1,21 @@
 import React from 'react';
-import { TFlexItem, processFlexClasses } from './types/Flex';
-import { TTheme, processThemeClasses } from './types/Theme';
+import { processFlexClasses } from './types/Flex';
+import { processThemeClasses } from './types/Theme';
 import { TSection } from './types/Intrinsic';
+import { TSurface } from './Surface';
+import { joinClasses } from '../../utils';
 
-export type TText = {
-  flex?: TFlexItem;
-  theme?: TTheme;
-};
-
-const Text: (props: TText & TSection) => JSX.Element = ({ children, className, flex = {}, theme = {}, ...section }) => {
+const Text: (props: TSurface & TSection) => JSX.Element = ({
+  children,
+  className,
+  flex = {},
+  theme = {},
+  ...section
+}) => {
   const flexClasses = processFlexClasses(flex);
   const themeClasses = processThemeClasses(theme);
   return (
-    <section {...section} className={['text', flexClasses, themeClasses, className].join(' ')}>
+    <section {...section} className={joinClasses('text', flexClasses, themeClasses, className)}>
       {children}
     </section>
   );

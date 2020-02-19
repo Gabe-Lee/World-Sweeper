@@ -83,18 +83,60 @@ body {
   border: none;
 }
 
-.lift {
+.icon-round-1 {
+  border-radius: 100000px;
+  font-size: 1em;
+  width: 1.5em;
+  height: 1.5em;
+}
+.icon-round-2 {
+  border-radius: 100000px;
+  font-size: 1.5em;
+  width: 2em;
+  height: 2em;
+}
+.icon-round-3 {
+  border-radius: 100000px;
+  font-size: 2em;
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.font-xs {font-size: 0.5rem;}
+.font-sm {font-size: 0.75rem;}
+.font-md {font-size: 1rem;}
+.font-lg {font-size: 1.25rem;}
+.font-xl {font-size: 1.5rem;}
+.font-2x{font-size: 2rem;}
+.font-2-5x {font-size: 2.5rem;}
+.font-3x {font-size: 3rem;}
+
+.lift-none {
+  box-shadow: none;
+}
+.lift-shadow {box-shadow: $shadow_mid;}
+.lift-raise {
   transform: translateY(-0.125rem);
   box-shadow: $shadow_high;
-  &.depress {
-    &:hover {
-      transform: translateY(-0.0625rem);
-      box-shadow: $shadow_mid;
-    }
-    &:active {
-      transform: translateY(0rem);
-      box-shadow: $shadow_low;
-    }
+}
+.lift-raise-depress {
+  box-shadow: $shadow_high;
+  &:hover {
+    transform: translateY(-0.0625rem);
+    box-shadow: $shadow_mid;
+  }
+  &:active {
+    transform: translateY(0rem);
+    box-shadow: $shadow_low;
+  }
+}
+.lift-shadow-depress {
+  box-shadow: $shadow_high;
+  &:hover {
+    box-shadow: $shadow_mid;
+  }
+  &:active {
+    box-shadow: $shadow_low;
   }
 }
 
@@ -135,6 +177,8 @@ body {
 .round-lg {border-radius: 1rem;}
 .round-xl {border-radius: 1.5rem;}
 .round-pill  {border-radius: 10000px;}
+
+
 
 .center {
   text-align: center;

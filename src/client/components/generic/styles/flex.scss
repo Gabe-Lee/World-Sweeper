@@ -2,19 +2,27 @@ $bp-values: 0px, 400px, 600px, 1000px, 1400px;
 $bp-names: 'xs', 'sm', 'md', 'lg', 'xl';
 
 @mixin flex-child-width($gap, $size, $breakpoint, $max) {
-  @media screen and (min-width: $breakpoint) {
-    & > .flex.#{$size}-0 {
+  @media (min-width: $breakpoint) {
+    & > .flex.#{$size}-0, .flex.#{$size}-0 {
       display: none;
       flex: 0 0 0px;
     }
+    & > .flex.#{$size}-min {
+      display: flex;
+      flex: 0 0 auto;
+      margin: $gap / 2;
+    }
     @for $x from 1 to $max + 1 {
+      
       & > .flex.#{$size}-#{$x} {
-        flex: 0 0 calc(#{percentage(1 / $x)} - #{2 * $gap});
-        margin: $gap;
+        display: flex;
+        flex: 0 0 calc(#{percentage(1 / $x)} - #{$gap});
+        margin: $gap / 2;
       }
       & > .flex.#{$size}r-#{$x} {
+        display: flex;
         flex: $x $x auto;
-        margin: $gap;
+        margin: $gap / 2;
       }
     }
   }
@@ -24,8 +32,8 @@ $bp-names: 'xs', 'sm', 'md', 'lg', 'xl';
   @for $x from 0 to $max + 1 {
     $gap: $x * 0.25rem;
     &.gap-#{$x} {
-      padding: $gap;
-      &.unmargin {margin: -2 * $gap;}
+      padding: $gap / 2;
+      &.unmargin {margin: -1 * $gap;}
       @include flex-child-width($gap, nth($bp-names, 1), nth($bp-values, 1), 12);
       @include flex-child-width($gap, nth($bp-names, 2), nth($bp-values, 2), 12);
       @include flex-child-width($gap, nth($bp-names, 3), nth($bp-values, 3), 12);
@@ -46,8 +54,8 @@ $bp-names: 'xs', 'sm', 'md', 'lg', 'xl';
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: flex-start;
-  flex: 1 1 100%;
+  align-content: center;
+  flex: 0 0 auto;
   align-self: stretch;
   padding: 0px;
   margin: 0px;
