@@ -1,7 +1,8 @@
 // @ts-check
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
 import { faCompactDisc } from '@fortawesome/free-solid-svg-icons';
+import { select, dispatch } from '../utils';
 
 import Surface from './generic/Surface';
 // import Button from './generic/Button';
@@ -11,7 +12,6 @@ import Text from './generic/Text';
 import './GameClient.scss';
 
 /** @typedef {import('../redux/store').TStore} TStore */
-
 /**
  * Renders loading splash elements before client has fully loaded
  * @returns {JSX.Element} JSX.Element
@@ -33,9 +33,10 @@ const loadingSplash = () => (
  *
  * Holds all react ui components
  * as well as PixiJS viewport
+ * @returns {JSX.Element} JSX.Element
  */
 const GameClient = () => {
-  const { clientLoaded } = useSelector(store => store.system);
+  const { clientLoaded } = select(store => store.system);
   return (
     <Surface id="game-client" theme={{ colors: 'standard-darker' }}>
       {clientLoaded ? '' : loadingSplash()}

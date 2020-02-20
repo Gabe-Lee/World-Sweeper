@@ -10,6 +10,7 @@ const masterReducer = combineReducers({
 });
 /**
  * @typedef {ReturnType<typeof masterReducer>} TStore
+ * @typedef {import('./reducers/system').SystemState} TAllStates
  */
 
 export default createStore(

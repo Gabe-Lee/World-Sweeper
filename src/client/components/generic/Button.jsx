@@ -1,7 +1,7 @@
 // @ts-check
 import React from 'react';
 import processFlexClasses from './types/Flex';
-import processThemeClasses from './types/Theme.js';
+import processThemeClasses from './types/Theme';
 
 /**
  * Button component
