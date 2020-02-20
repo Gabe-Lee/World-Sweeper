@@ -1,0 +1,62 @@
+$bp-values: 0px, 400px, 600px, 1000px, 1400px;
+$bp-names: 'xs', 'sm', 'md', 'lg', 'xl';
+
+body {
+  overflow-y: hidden;
+}
+
+main {
+
+  height: calc(100vh - 3.75rem);
+  width: 100vw;
+  overflow-y: auto;
+  margin-bottom: 3.75rem;
+  // Browser
+  @media (min-width: #{nth($bp-values, 4)}) {
+    margin-bottom: 0rem;
+    margin-top: 3.75rem;
+  }
+}
+
+#navbar {
+  
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  height: 3.75rem;
+  // Mobile mode
+  bottom: 0;
+  // Browser mode
+  @media (min-width: #{nth($bp-values, 4)}) {
+    top: 0;
+  }
+}
+
+#navbar-drawer {
+  position: fixed;
+  z-index: 95;
+  width: 100vw;
+  height: 7.5rem;
+  transition: bottom ease-in-out 0.2s, top ease-in-out 0.2s;
+  // Mobile mode
+  bottom: -7.5rem;
+  padding-bottom: 3.75rem;
+  &.open {bottom: 0rem}
+  // Mobile large enough for no drawer
+  @media (min-width: #{nth($bp-values, 2)}) {
+    display: None;
+  }
+}
+
+#navbar-modal {
+  position: fixed;
+  background-color: rgba(0,0,0,0);
+  cursor: default;
+  z-index: 90;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.navbar-spacer {height: 3.75rem;}

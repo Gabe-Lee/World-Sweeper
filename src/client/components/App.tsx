@@ -1,15 +1,17 @@
-import React from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { dark, light } from './style/themes';
+import React, { ReactElement } from 'react';
 
-const App = (): JSX.Element => {
-  const prefersDarkTheme = useMediaQuery('(prefers-color-scheme: dark)');
+import Surface from './generic/Surface';
+import Button from './generic/Button';
 
+import Navbar from './Navbar';
+import GameClient from './GameClient';
+
+const App = (): ReactElement => {
   return (
-    <ThemeProvider theme={prefersDarkTheme ? dark : light}>
-      <div id="app">HELLO WORLD</div>
-    </ThemeProvider>
+    <>
+      <Navbar />
+      <GameClient />
+    </>
   );
 };
 export default App;

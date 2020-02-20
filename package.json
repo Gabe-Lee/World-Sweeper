@@ -31,7 +31,10 @@
       }
     },
     "rules": {
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "react/prop-types": "off",
+      "react/jsx-props-no-spreading": "off",
+      "no-nested-ternary": "off"
     },
     "ignorePatterns": [
       "dist/**/*",
@@ -76,7 +79,9 @@
     "build": "webpack --config webpack.config.js -p && node ./dist/server/server.js & live-server --open=/ --watch=dist --wait=1000 --proxy=/:http://127.0.0.1:3333"
   },
   "dependencies": {
-    "@material-ui/core": "^4.9.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "axios": "^0.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
