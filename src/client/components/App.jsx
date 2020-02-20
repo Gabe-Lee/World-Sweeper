@@ -1,12 +1,10 @@
-import React, { ReactElement } from 'react';
-
-import Surface from './generic/Surface';
-import Button from './generic/Button';
+// @ts-check
+import React from 'react';
 
 import Navbar from './Navbar';
 import GameClient from './GameClient';
 
-const App = (): ReactElement => {
+const App = () => {
   return (
     <>
       <Navbar />

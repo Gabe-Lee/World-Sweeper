@@ -3,11 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NodeExternals = require('webpack-node-externals');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const serverEntry = path.resolve(__dirname, 'src/server/index.ts');
+const serverEntry = path.resolve(__dirname, 'src/server/index.js');
 const serverOutput = path.resolve(__dirname, 'dist/server');
 const serverOutFile = 'server.js';
 
-const clientEntry = path.resolve(__dirname, 'src/client/index.tsx');
+const clientEntry = path.resolve(__dirname, 'src/client/index.jsx');
 const clientOutput = path.resolve(__dirname, './dist/client');
 const clientOutFile = 'client.js';
 const clientTitle = '[YOUR_APP_TITLE]';
@@ -28,7 +28,7 @@ const frontend = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
@@ -49,7 +49,7 @@ const frontend = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json'],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -79,14 +79,14 @@ const backend = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js', '.json'],
+    extensions: ['.js', '.json'],
   },
   externals: [NodeExternals()],
 };
