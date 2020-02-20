@@ -1,3 +1,5 @@
+// @ts-check
+
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
@@ -6,7 +8,10 @@ import system from './reducers/system';
 const masterReducer = combineReducers({
   system,
 });
-export type Store = ReturnType<typeof masterReducer>;
+/**
+ * @typedef {ReturnType<typeof masterReducer>} TStore
+ * @typedef {import('./reducers/system').SystemState} TAllStates
+ */
 
 export default createStore(
   masterReducer,
