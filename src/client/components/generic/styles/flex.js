@@ -139,4 +139,6 @@ export const flexDefault = {
   alignContent: 'center',
   flex: '0 0 auto',
   alignSelf: 'stretch',
+  padding: '0',
+  margin: '0',
 };

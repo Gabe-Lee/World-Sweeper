@@ -1,8 +1,8 @@
 // @ts-check
 import React from 'react';
 
+import { createUseStyles } from 'react-jss';
 import { theme } from './styles/theme';
-import createStyles from './styles/create';
 import { parseFlex, flexDefault } from './styles/flex';
 
 /**
@@ -13,7 +13,7 @@ import { parseFlex, flexDefault } from './styles/flex';
  */
 const Button = ({ className = 'Button', addClass = '', gap = '0', css = {}, flex = [], children, ...button }) => {
   const flexStyles = parseFlex(flex);
-  const style = createStyles({
+  const style = createUseStyles({
     [className]: {
       ...theme.standard,
       ...flexDefault,

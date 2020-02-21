@@ -1,7 +1,7 @@
 // @ts-check
 import React from 'react';
+import { createUseStyles } from 'react-jss';
 import { theme } from './styles/theme';
-import createStyles from './styles/create';
 import { parseFlex, flexDefault } from './styles/flex';
 
 /**
@@ -21,7 +21,7 @@ export default function Text({
   ...section
 }) {
   const flexStyles = parseFlex(flex);
-  const style = createStyles({
+  const style = createUseStyles({
     [className]: {
       ...theme.standard,
       ...flexDefault,

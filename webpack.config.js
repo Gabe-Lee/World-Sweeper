@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NodeExternals = require('webpack-node-externals');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const serverEntry = path.resolve(__dirname, 'src/server/index.js');
 const serverOutput = path.resolve(__dirname, 'dist/server');
@@ -32,20 +31,6 @@ const frontend = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: clientOutput,
-            },
-          },
-          'css-loader',
-          'sass-loader',
-        ],
-      },
     ],
   },
   resolve: {
@@ -55,9 +40,6 @@ const frontend = {
     new HtmlWebpackPlugin({
       title: clientTitle,
       template: clientTemplate,
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'style.css',
     }),
   ],
 };

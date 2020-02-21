@@ -31,6 +31,7 @@ export const color = {
 
 /** @enum {import('csstype').Properties<string>} */
 export const theme = {
+  standardDarker: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_1 },
   standardDark: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_2 },
   standard: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_3 },
   standardLight: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_4 },
@@ -49,4 +50,12 @@ export const shadow = {
   high: { boxShadow: '0px 2px 4px 0px rgba(0,0,0,0.35)' },
   med: { boxShadow: '0px 4px 6px 0px rgba(0,0,0,0.2)' },
   low: { boxShadow: '0px 6px 8px 1px rgba(0,0,0,0.1)' },
+};
+
+const easeFast = '0.1s ease-in-out';
+/** @enum {import('csstype').Properties<string>} */
+export const transitions = {
+  color: {
+    transition: `background-color ${easeFast}, color ${easeFast}, transform ${easeFast}, box-shadow ${easeFast}`,
+  },
 };

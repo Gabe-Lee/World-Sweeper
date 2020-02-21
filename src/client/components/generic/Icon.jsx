@@ -1,9 +1,9 @@
 // @ts-check
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { createUseStyles } from 'react-jss';
 
 import { theme } from './styles/theme';
-import createStyles from './styles/create';
 import { parseFlex, flexDefault } from './styles/flex';
 
 /**
@@ -15,7 +15,7 @@ import { parseFlex, flexDefault } from './styles/flex';
  */
 export default function Icon({ className = 'Icon', addClass = '', gap = '0', css = {}, flex = [], ...icon }) {
   const flexStyles = parseFlex(flex);
-  const style = createStyles({
+  const style = createUseStyles({
     [className]: {
       ...theme.standard,
       ...flexDefault,

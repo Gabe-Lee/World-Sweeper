@@ -1,5 +1,5 @@
 // @ts-check
-import { SystemTypes } from '../actions/system';
+import { SET_CLIENT_LOADED, SET_WINDOW_SIZE } from '../actions/system';
 
 /**
  * @typedef {Object} ClientSettings
@@ -12,6 +12,7 @@ import { SystemTypes } from '../actions/system';
  * @property {string} clientVersion
  * @property {string} sessionUuid
  * @property {ClientSettings} clientSettings
+ * @property {{height: number, width: number, orientation: import('../../components/generic/styles/flex.js').Orientation}} window
  */
 
 /** @type {SystemState} */
@@ -21,6 +22,11 @@ const initialState = {
   sessionUuid: 'none',
   clientSettings: {
     theme: 'dark',
+  },
+  window: {
+    width: 640,
+    height: 480,
+    orientation: 'landscape',
   },
 };
 
@@ -32,8 +38,10 @@ const initialState = {
  */
 const system = (state = initialState, action) => {
   switch (action.type) {
-    case SystemTypes.SET_CLIENT_LOADED:
+    case SET_CLIENT_LOADED:
       return { ...state, clientLoaded: action.clientLoaded };
+    case SET_WINDOW_SIZE:
+      return { ...state, ...action.window };
     default:
       return state;
   }
