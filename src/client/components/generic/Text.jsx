@@ -1,21 +1,44 @@
 // @ts-check
 import React from 'react';
-import processFlexClasses from './types/Flex';
-import processThemeClasses from './types/Theme';
-import joinClasses from './types/Intrinsic';
+import { theme } from './styles/theme';
+import createStyles from './styles/create';
+import { parseFlex, flexDefault } from './styles/flex';
 
 /**
  * Text component
  *
  * Uses HTML5 <article> under the hood for semantics
  * Is both a flex container and flex member
- * @param {import('./types/Intrinsic').HTML5Element & import('./types/Intrinsic').TElement} props
+ * @param {import('./types/Intrinsic').HTML5Element & import('./types/Intrinsic').TJSSElement} props
  */
-export default function Text({ children, className, flex = {}, theme = {}, ...section }) {
-  const flexClasses = processFlexClasses(flex);
-  const themeClasses = processThemeClasses(theme);
+export default function Text({
+  className = 'Text',
+  addClass = '',
+  gap = '0',
+  css = {},
+  flex = [],
+  children,
+  ...section
+}) {
+  const flexStyles = parseFlex(flex);
+  const style = createStyles({
+    [className]: {
+      ...theme.standard,
+      ...flexDefault,
+      borderRadius: '0rem',
+      border: 'none',
+      display: 'flex',
+      padding: gap,
+      // @ts-ignore
+      '& > *': {
+        margin: gap,
+      },
+      ...css,
+      ...flexStyles,
+    },
+  })();
   return (
-    <article {...section} className={joinClasses('text', flexClasses, themeClasses, className)}>
+    <article {...section} className={style[className].concat(` ${addClass}`)}>
       {children}
     </article>
   );

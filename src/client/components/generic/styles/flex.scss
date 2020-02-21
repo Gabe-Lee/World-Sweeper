@@ -1,4 +1,4 @@
-$bp-values: 0px, 400px, 600px, 1000px, 1400px;
+$bp-values: 0px, 400px, 640px, 1024px, 1400px;
 $bp-names: 'xs', 'sm', 'md', 'lg', 'xl';
 
 @mixin flex-child-width($gap, $size, $breakpoint, $max) {
