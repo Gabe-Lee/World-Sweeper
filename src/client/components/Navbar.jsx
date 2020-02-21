@@ -6,37 +6,39 @@ import Surface from './generic/Surface';
 import Button from './generic/Button';
 import Icon from './generic/Icon';
 import Text from './generic/Text';
+import { theme, border, shadow } from './generic/styles/theme';
+import { absolute, relative, flexDefault } from './generic/styles/flex';
 
-import './Navbar.scss';
+const flexFill = { size: 'xs', styles: { ...absolute(1) } };
 
 /**
  * Render the hamburger menu button with different flex breakpoints
- * @param {import('./generic/types/Flex').TFlex} flex
+ * @param {import('./generic/styles/flex.js').FlexModes} flex
  * @param {() => void} toggleDrawer
  */
 const openMenuButton = (flex, toggleDrawer) => (
-  <Button flex={flex} theme={{ colors: 'standard', rounded: 'pill', lift: 'shadow-depress' }} onClick={toggleDrawer}>
-    <Icon icon={faBars} flex={{ xsr: 1 }} />
+  <Button gap="0.25rem" flex={flex} css={{ ...border.pill }} onClick={toggleDrawer}>
+    <Icon icon={faBars} flex={[{ size: 'xs', styles: { ...relative(1) } }]} />
   </Button>
 );
 
 /**
  * Render the array of nav buttons with different flex breakpoints
- * @param {import('./generic/types/Flex').TFlex} buttonFlex
- * @param {import('./generic/types/Flex').TFlex} textFlex
+ * @param {import('./generic/styles/flex.js').FlexModes} buttonFlex
+ * @param {import('./generic/styles/flex.js').FlexModes} textFlex
  */
 const navButtons = (buttonFlex, textFlex) => (
   <>
-    <Button flex={buttonFlex} theme={{ colors: 'standard', rounded: 'pill', lift: 'shadow-depress' }}>
-      <Icon icon={faQuestionCircle} flex={{ xsr: 1 }} />
+    <Button gap="0.25rem" flex={buttonFlex} css={{ ...border.pill }}>
+      <Icon icon={faQuestionCircle} flex={flexFill} />
       <Text flex={textFlex}>About</Text>
     </Button>
-    <Button flex={buttonFlex} theme={{ colors: 'standard', rounded: 'pill', lift: 'shadow-depress' }}>
-      <Icon icon={faBook} flex={{ xsr: 1 }} />
+    <Button gap="0.25rem" flex={buttonFlex} css={{ ...border.pill }}>
+      <Icon icon={faBook} flex={flexFill} />
       <Text flex={textFlex}>Tutorial</Text>
     </Button>
-    <Button flex={buttonFlex} theme={{ colors: 'standard', rounded: 'pill', lift: 'shadow-depress' }}>
-      <Icon icon={faUser} flex={{ xsr: 1 }} />
+    <Button gap="0.25rem" flex={buttonFlex} css={{ ...border.pill }}>
+      <Icon icon={faUser} flex={flexFill} />
       <Text flex={textFlex}>Account</Text>
     </Button>
   </>
@@ -54,19 +56,76 @@ export default function Navbar() {
   return (
     <>
       <Surface
-        id="navbar-drawer"
-        className={drawer}
-        flex={{ gap: 2, align: ['middle', 'right'] }}
-        theme={{ colors: 'standard-light', fontSize: 'lg' }}
+        className="NavbarDrawer"
+        addClass={drawer}
+        gap="0.25rem"
+        css={{
+          ...theme.standardLight,
+          fontSize: '1.5rem',
+          position: 'fixed',
+          zIndex: 95,
+          width: '100vw',
+          height: '7.5rem',
+          transition: 'bottom ease-in-out 0.2s, top ease-in-out 0.2s',
+          bottom: '-7.5rem',
+          paddingBottom: '3.75rem',
+          // @ts-ignore
+          '&.open': { bottom: '0rem' },
+        }}
       >
-        {navButtons({ gap: 3, xs: 'min' }, { xs: 0, sm: 'min' })}
+        {navButtons({ size: 'xs', styles: { flex: '0 0 auto' } }, [
+          { size: 'xs', styles: { display: 'none' } },
+          { size: 'sm', styles: { flex: '0 0 auto' } },
+        ])}
       </Surface>
-      {drawer === 'closed' ? '' : <Button id="navbar-modal" onClick={toggleDrawer} />}
+      {drawer === 'closed' ? (
+        ''
+      ) : (
+        <Button
+          css={{
+            position: 'fixed',
+            backgroundColor: 'rgba(0,0,0,0)',
+            cursor: 'default',
+            zIndex: 90,
+            width: '100vw',
+            height: '100vh',
+            left: 0,
+            top: 0,
+          }}
+          className="NavbarModal"
+          onClick={toggleDrawer}
+        />
+      )}
       {/* <Surface className="navbar-spacer" flex={{ xs: 0, lg: 1 }} /> */}
-      <Surface id="navbar" flex={{ gap: 2 }} theme={{ colors: 'standard-light', lift: 'shadow', fontSize: 'lg' }}>
-        <Text flex={{ xsr: 10 }}>HELLO WORLDER</Text>
-        {openMenuButton({ gap: 3, xs: 'min', sm: 0 }, toggleDrawer)}
-        {navButtons({ gap: 3, xs: 0, sm: 'min' }, { xs: 0, md: 'min' })}
+      <Surface
+        className="Navbar"
+        gap="0.25rem"
+        css={{
+          ...theme.standardLight,
+          fontSize: '1.5rem',
+          ...shadow.med,
+          position: 'fixed',
+          zIndex: 100,
+          width: '100vw',
+          height: '3.75rem',
+          bottom: '0',
+        }}
+        flex={{ size: 'lg', styles: { top: '0' } }}
+      >
+        <Text css={{ ...theme.standardLight }} flex={{ size: 'xs', styles: { ...relative(10) } }}>
+          HELLO WORLDER
+        </Text>
+        {openMenuButton({ size: 'sm', styles: { display: 'none' } }, toggleDrawer)}
+        {navButtons(
+          [
+            { size: 'xs', styles: { display: 'none' } },
+            { size: 'sm', styles: { ...flexDefault } },
+          ],
+          [
+            { size: 'xs', styles: { display: 'none' } },
+            { size: 'md', styles: { ...flexDefault } },
+          ],
+        )}
       </Surface>
       {/* <Surface className="navbar-spacer" flex={{ xs: 1, lg: 0 }} /> */}
     </>
