@@ -3,20 +3,17 @@
 /* eslint-env browser */
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-
 import { createUseStyles } from 'react-jss';
+import cascade from './generic/styles/cascade';
+
 import { setWindowSize } from '../redux/actions/system';
-import { main, body } from './App.style';
+import { main, body, normalize } from './App.style';
 import Navbar from './Navbar';
 // import GameClient from './GameClient';
 
 const useStyles = createUseStyles({
-  '@global': {
-    ...body,
-  },
-  Main: {
-    ...main,
-  },
+  '@global': cascade(normalize, body),
+  Main: main,
 });
 
 const App = () => {

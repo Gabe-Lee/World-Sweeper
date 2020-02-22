@@ -1,28 +1,28 @@
 // @ts-check
 export const color = {
-  FG_1: '#919191',
-  FG_2: '#b1b1b1',
-  FG_3: '#d1d1d1',
-  FG_4: '#e1e1e1',
-  FG_5: '#f1f1f1',
+  FG_1: 'hsl(0, 0%, 60%)',
+  FG_2: 'hsl(0, 0%, 70%)',
+  FG_3: 'hsl(0, 0%, 80%)',
+  FG_4: 'hsl(0, 0%, 90%)',
+  FG_5: 'hsl(0, 0%, 100%)',
 
-  BG_1: '#141511',
-  BG_2: '#242521',
-  BG_3: '#343531',
-  BG_4: '#444541',
-  BG_5: '#545551',
+  BG_1: 'hsl(75, 10%, 5%)',
+  BG_2: 'hsl(75, 10%, 13%)',
+  BG_3: 'hsl(75, 10%, 20%)',
+  BG_4: 'hsl(75, 10%, 27%)',
+  BG_5: 'hsl(75, 10%, 35%)',
 
-  PRI_1: '#2c5e25',
-  PRI_2: '#4c7e45',
-  PRI_3: '#6c9e65',
-  PRI_4: '#8cbe85',
-  PRI_5: '#acdea5',
+  PRI_1: 'hsl(113, 30%, 30%)',
+  PRI_2: 'hsl(113, 30%, 40%)',
+  PRI_3: 'hsl(113, 30%, 50%)',
+  PRI_4: 'hsl(113, 30%, 60%)',
+  PRI_5: 'hsl(113, 30%, 70%)',
 
-  A4_1: '#711b08',
-  A4_2: '#913b17',
-  A4_3: '#b15b37',
-  A4_4: '#c16b47',
-  A4_5: '#d17b57',
+  A4_1: 'hsl(18, 50%, 25%)',
+  A4_2: 'hsl(18, 50%, 35%)',
+  A4_3: 'hsl(18, 50%, 45%)',
+  A4_4: 'hsl(18, 50%, 55%)',
+  A4_5: 'hsl(18, 50%, 65%)',
 };
 
 /**
@@ -35,6 +35,7 @@ export const theme = {
   standardDark: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_2 },
   standard: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_3 },
   standardLight: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_4 },
+  standardLighter: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_5 },
 
   primaryDarker: { color: color.FG_4, borderColor: color.FG_4, backgroundColor: color.PRI_1 },
   primary: { color: color.FG_4, borderColor: color.FG_4, backgroundColor: color.PRI_3 },
@@ -47,9 +48,11 @@ export const border = {
 };
 /** @enum {import('csstype').Properties<string>} */
 export const shadow = {
-  high: { boxShadow: '0px 2px 4px 0px rgba(0,0,0,0.35)' },
-  med: { boxShadow: '0px 4px 6px 0px rgba(0,0,0,0.2)' },
-  low: { boxShadow: '0px 6px 8px 1px rgba(0,0,0,0.1)' },
+  none: { boxShadow: 'none' },
+  low: { boxShadow: '0px 1px 3px -1px rgba(0,0,0,0.35)' },
+  med: { boxShadow: '0px 6px 4px -2px rgba(0,0,0,0.2)' },
+  high: { boxShadow: '0px 6px 5px 1px rgba(0,0,0,0.1)' },
+  medUp: { boxShadow: '0px -2px 4px -2px rgba(0,0,0,0.2)' },
 };
 
 const easeFast = '0.1s ease-in-out';

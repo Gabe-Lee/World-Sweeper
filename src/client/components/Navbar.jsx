@@ -1,7 +1,8 @@
 // @ts-check
 import React, { useState } from 'react';
-
 import { faUser, faBars, faBook, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import cascade from './generic/styles/cascade';
+
 import Surface from './generic/Surface';
 import Button from './generic/Button';
 import Icon from './generic/Icon';
@@ -9,7 +10,9 @@ import Text from './generic/Text';
 import { theme, border, shadow } from './generic/styles/theme';
 import { absolute, relative, flexDefault } from './generic/styles/flex';
 
-const flexFill = { size: 'xs', styles: { ...absolute(1) } };
+const flexFill = { size: 'xs', styles: absolute(1) };
+const flexMin = { display: 'flex', flex: '0 0 auto' };
+const flexHide = { display: 'none', flex: '0 0 0px' };
 
 /**
  * Render the hamburger menu button with different flex breakpoints
@@ -17,8 +20,8 @@ const flexFill = { size: 'xs', styles: { ...absolute(1) } };
  * @param {() => void} toggleDrawer
  */
 const openMenuButton = (flex, toggleDrawer) => (
-  <Button gap="0.25rem" flex={flex} css={{ ...border.pill }} onClick={toggleDrawer}>
-    <Icon icon={faBars} flex={[{ size: 'xs', styles: { ...relative(1) } }]} />
+  <Button gap="0.25rem" flex={flex} css={border.pill} onClick={toggleDrawer}>
+    <Icon icon={faBars} flex={[{ size: 'xs', styles: relative(1) }]} />
   </Button>
 );
 
@@ -29,15 +32,15 @@ const openMenuButton = (flex, toggleDrawer) => (
  */
 const navButtons = (buttonFlex, textFlex) => (
   <>
-    <Button gap="0.25rem" flex={buttonFlex} css={{ ...border.pill }}>
+    <Button gap="0.25rem" flex={buttonFlex} css={border.pill}>
       <Icon icon={faQuestionCircle} flex={flexFill} />
       <Text flex={textFlex}>About</Text>
     </Button>
-    <Button gap="0.25rem" flex={buttonFlex} css={{ ...border.pill }}>
+    <Button gap="0.25rem" flex={buttonFlex} css={border.pill}>
       <Icon icon={faBook} flex={flexFill} />
       <Text flex={textFlex}>Tutorial</Text>
     </Button>
-    <Button gap="0.25rem" flex={buttonFlex} css={{ ...border.pill }}>
+    <Button gap="0.25rem" flex={buttonFlex} css={border.pill}>
       <Icon icon={faUser} flex={flexFill} />
       <Text flex={textFlex}>Account</Text>
     </Button>
@@ -59,8 +62,8 @@ export default function Navbar() {
         className="NavbarDrawer"
         addClass={drawer}
         gap="0.25rem"
-        css={{
-          ...theme.standardLight,
+        css={cascade(theme.standardLight, shadow.medUp, {
+          justifyContent: 'flex-end',
           fontSize: '1.5rem',
           position: 'fixed',
           zIndex: 95,
@@ -71,11 +74,12 @@ export default function Navbar() {
           paddingBottom: '3.75rem',
           // @ts-ignore
           '&.open': { bottom: '0rem' },
-        }}
+        })}
+        flex={{ size: 'sm', styles: flexHide }}
       >
-        {navButtons({ size: 'xs', styles: { flex: '0 0 auto' } }, [
-          { size: 'xs', styles: { display: 'none' } },
-          { size: 'sm', styles: { flex: '0 0 auto' } },
+        {navButtons({ size: 'xs', styles: flexMin }, [
+          { size: 'xs', styles: flexHide },
+          { size: 'sm', styles: flexMin },
         ])}
       </Surface>
       {drawer === 'closed' ? (
@@ -92,6 +96,7 @@ export default function Navbar() {
             left: 0,
             top: 0,
           }}
+          flex={{ size: 'sm', styles: flexHide }}
           className="NavbarModal"
           onClick={toggleDrawer}
         />
@@ -100,30 +105,28 @@ export default function Navbar() {
       <Surface
         className="Navbar"
         gap="0.25rem"
-        css={{
-          ...theme.standardLight,
+        css={cascade(theme.standardLighter, shadow.medUp, {
           fontSize: '1.5rem',
-          ...shadow.med,
           position: 'fixed',
           zIndex: 100,
           width: '100vw',
           height: '3.75rem',
           bottom: '0',
-        }}
-        flex={{ size: 'lg', styles: { top: '0' } }}
+        })}
+        flex={{ size: 'lg', styles: cascade(shadow.med, { top: '0' }) }}
       >
-        <Text css={{ ...theme.standardLight }} flex={{ size: 'xs', styles: { ...relative(10) } }}>
+        <Text css={theme.standardLighter} flex={{ size: 'xs', styles: relative(10) }}>
           HELLO WORLDER
         </Text>
-        {openMenuButton({ size: 'sm', styles: { display: 'none' } }, toggleDrawer)}
+        {openMenuButton({ size: 'sm', styles: flexHide }, toggleDrawer)}
         {navButtons(
           [
-            { size: 'xs', styles: { display: 'none' } },
-            { size: 'sm', styles: { ...flexDefault } },
+            { size: 'xs', styles: flexHide },
+            { size: 'sm', styles: flexMin },
           ],
           [
-            { size: 'xs', styles: { display: 'none' } },
-            { size: 'md', styles: { ...flexDefault } },
+            { size: 'xs', styles: flexHide },
+            { size: 'md', styles: flexMin },
           ],
         )}
       </Surface>

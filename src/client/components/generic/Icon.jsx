@@ -2,9 +2,30 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createUseStyles } from 'react-jss';
+import cascade from './styles/cascade';
 
 import { theme } from './styles/theme';
 import { parseFlex, flexDefault } from './styles/flex';
+
+const makeStyle = ({ gap, css, flexStyles, className }) =>
+  createUseStyles({
+    [className]: cascade(
+      theme.standard,
+      flexDefault,
+      {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: gap,
+        // @ts-ignore
+        '& > *': {
+          margin: gap,
+        },
+      },
+      css,
+      flexStyles,
+    ),
+  })();
 
 /**
  * Icon component
@@ -15,21 +36,6 @@ import { parseFlex, flexDefault } from './styles/flex';
  */
 export default function Icon({ className = 'Icon', addClass = '', gap = '0', css = {}, flex = [], ...icon }) {
   const flexStyles = parseFlex(flex);
-  const style = createUseStyles({
-    [className]: {
-      ...theme.standard,
-      ...flexDefault,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: gap,
-      // @ts-ignore
-      '& > *': {
-        margin: gap,
-      },
-      ...css,
-      ...flexStyles,
-    },
-  })();
+  const style = makeStyle({ gap, css, flexStyles, className });
   return <FontAwesomeIcon {...icon} className={style[className].concat(` ${addClass}`)} />;
 }

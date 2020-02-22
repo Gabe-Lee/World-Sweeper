@@ -1,17 +1,23 @@
+import cascade from './generic/styles/cascade';
 import { flexDefault } from './generic/styles/flex';
 import { theme } from './generic/styles/theme';
 
 /** @type {import('csstype').Properties} */
-export const main = {
-  ...flexDefault,
-  ...theme.standard,
+export const main = cascade(flexDefault, theme.standard, {
   height: '100vh',
   width: '100vw',
   overflow: 'hidden',
-};
+});
 
 /** @type {import('csstype').Properties} */
 export const body = {
+  body: cascade(theme.standardDarker, {
+    fontFamily: 'Roboto',
+  }),
+};
+
+/** @type {import('csstype').Properties} */
+export const normalize = {
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
   // Settings borrowed from above
   '*, *::after, *::before': {
@@ -24,9 +30,6 @@ export const body = {
   body: {
     margin: '0px',
     // Custom
-    ...theme.standardDarker,
-    fontFamily:
-      "Roboto, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",
   },
   main: {
     display: 'block',
@@ -70,7 +73,6 @@ export const body = {
   sub: {
     bottom: '-0.25em',
   },
-
   sup: {
     top: '-0.5em',
   },

@@ -1,4 +1,5 @@
 import { cloneElement, Children } from 'react';
+import cascade from './cascade';
 
 // @ts-check
 export const screens = {
@@ -100,6 +101,7 @@ export function relative(value) {
  * @returns {import('csstype').Properties}
  */
 export function absolute(value, parentGap = '0px') {
+  if (value === 0) return { flex: '0 0 0px', display: 'none' };
   return {
     flex: `0 0 calc(${1 / value}% - ${parentGap})`,
   };
@@ -118,11 +120,11 @@ export function absolute(value, parentGap = '0px') {
 export function parseFlex(modes) {
   if (!Array.isArray(modes)) return parseResponsiveTags(modes.size, modes.styles);
   const modeLim = modes.length;
-  let flexStyles = {};
+  const flexStyles = [];
   for (let i = 0; i < modeLim; i += 1) {
-    flexStyles = { ...flexStyles, ...parseResponsiveTags(modes[i].size, modes[i].styles) };
+    flexStyles.push(parseResponsiveTags(modes[i].size, modes[i].styles));
   }
-  return flexStyles;
+  return cascade(...flexStyles);
 }
 
 export function gappedChildren(gap, children) {
@@ -138,7 +140,5 @@ export const flexDefault = {
   justifyContent: 'center',
   alignContent: 'center',
   flex: '0 0 auto',
-  alignSelf: 'stretch',
-  padding: '0',
-  margin: '0',
+  alignSelf: 'center',
 };

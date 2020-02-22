@@ -1,8 +1,29 @@
 // @ts-check
 import React from 'react';
 import { createUseStyles } from 'react-jss';
+import cascade from './styles/cascade';
 import { theme } from './styles/theme';
 import { parseFlex, flexDefault } from './styles/flex';
+
+const makeStyle = ({ gap, css, flexStyles, className }) =>
+  createUseStyles({
+    [className]: cascade(
+      theme.standard,
+      flexDefault,
+      {
+        borderRadius: '0rem',
+        border: 'none',
+        display: 'flex',
+        padding: gap,
+        // @ts-ignore
+        '& > *': {
+          margin: gap,
+        },
+      },
+      css,
+      flexStyles,
+    ),
+  })();
 
 /**
  * Text component
@@ -21,22 +42,7 @@ export default function Text({
   ...section
 }) {
   const flexStyles = parseFlex(flex);
-  const style = createUseStyles({
-    [className]: {
-      ...theme.standard,
-      ...flexDefault,
-      borderRadius: '0rem',
-      border: 'none',
-      display: 'flex',
-      padding: gap,
-      // @ts-ignore
-      '& > *': {
-        margin: gap,
-      },
-      ...css,
-      ...flexStyles,
-    },
-  })();
+  const style = makeStyle({ gap, css, flexStyles, className });
   return (
     <article {...section} className={style[className].concat(` ${addClass}`)}>
       {children}
