@@ -8,7 +8,7 @@ import { ReactNode, HTMLAttributes, DetailedHTMLProps, ButtonHTMLAttributes } fr
  * @typedef {DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>} HTML5Element
  * @typedef {ReactNode} TChildren
  *
- * @typedef {{css?: import('csstype').Properties, addClass?: string, flex?: import('../styles/flex').FlexModes, gap?: string }} TJSSElement
+ * @typedef {{name?: string, css?: import('csstype').Properties, addClass?: string}} TJSSElement
  */
 
 /**

@@ -1,44 +1,38 @@
 // @ts-check
 import React from 'react';
 import { createUseStyles } from 'react-jss';
+
 import cascade from './styles/cascade';
-
 import { theme, shadow } from './styles/theme';
-import { parseFlex, flexDefault } from './styles/flex';
+import { flex } from './styles/flex';
 
-const makeStyle = ({ gap, css, flexStyles, className }) =>
+const makeStyles = (name, css) =>
   createUseStyles({
-    [className]: cascade(
-      theme.standard,
-      flexDefault,
+    [name]: cascade(
+      theme.inherit,
+      // @ts-ignore
+      flex.default,
       shadow.med,
       {
         borderRadius: '0.5rem',
         border: 'none',
         outline: 'none',
         cursor: 'pointer',
-        padding: gap,
-        // @ts-ignore
-        '& > *': {
-          margin: gap,
-        },
       },
       css,
-      flexStyles,
     ),
-  })();
+  });
 
 /**
  * Button component
  *
  * Is both a flex container and flex member
- * @param {import('./types/Intrinsic.js').TButton & import('./types/Intrinsic').TJSSElement} props
+ * @param {import('./types/Intrinsic').TButton & import('./types/Intrinsic').TJSSElement} props
  */
-const Button = ({ className = 'Button', addClass = '', gap = '0', css = {}, flex = [], children, ...button }) => {
-  const flexStyles = parseFlex(flex);
-  const style = makeStyle({ gap, className, css, flexStyles });
+const Button = ({ name = 'Button', addClass = '', css = {}, children, ...button }) => {
+  const style = makeStyles(name, css)();
   return (
-    <button type="button" {...button} className={style[className].concat(` ${addClass}`)}>
+    <button type="button" {...button} className={`${style[name]} ${addClass}`}>
       {children}
     </button>
   );

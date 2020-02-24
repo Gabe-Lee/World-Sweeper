@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
  * Infers store type based on the return value of the root reducer
  * @param {(store: TStore) => TStore[keyof TStore]} storeSelector
  */
-export function select(storeSelector) {
+export function useSelect(storeSelector) {
   return useSelector(storeSelector);
 }
 

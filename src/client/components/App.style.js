@@ -1,9 +1,9 @@
 import cascade from './generic/styles/cascade';
-import { flexDefault } from './generic/styles/flex';
+import { flex } from './generic/styles/flex';
 import { theme } from './generic/styles/theme';
 
 /** @type {import('csstype').Properties} */
-export const main = cascade(flexDefault, theme.standard, {
+export const main = cascade(flex.default, theme.standard, {
   height: '100vh',
   width: '100vw',
   overflow: 'hidden',

@@ -31,6 +31,8 @@ export const color = {
 
 /** @enum {import('csstype').Properties<string>} */
 export const theme = {
+  inherit: { color: 'inherit', borderColor: 'inherit', backgroundColor: 'inherit' },
+
   standardDarker: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_1 },
   standardDark: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_2 },
   standard: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_3 },
@@ -53,6 +55,7 @@ export const shadow = {
   med: { boxShadow: '0px 6px 4px -2px rgba(0,0,0,0.2)' },
   high: { boxShadow: '0px 6px 5px 1px rgba(0,0,0,0.1)' },
   medUp: { boxShadow: '0px -2px 4px -2px rgba(0,0,0,0.2)' },
+  medAll: { boxShadow: '0px 0px 4px -1px rgba(0,0,0,0.2)' },
 };
 
 const easeFast = '0.1s ease-in-out';

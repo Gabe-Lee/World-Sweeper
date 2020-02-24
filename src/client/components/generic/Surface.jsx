@@ -1,29 +1,24 @@
 // @ts-check
 import React from 'react';
 import { createUseStyles } from 'react-jss';
+
 import cascade from './styles/cascade';
 import { theme } from './styles/theme';
-import { parseFlex, flexDefault } from './styles/flex';
+import { flex } from './styles/flex';
 
-const makeStyle = ({ gap, css, flexStyles, className }) =>
+const makeStyle = (name, css) =>
   createUseStyles({
-    [className]: cascade(
-      theme.standard,
-      flexDefault,
+    [name]: cascade(
+      theme.inherit,
+      // @ts-ignore
+      flex.default,
       {
         borderRadius: '0.5rem',
         border: 'none',
-        display: 'flex',
-        padding: gap,
-        // @ts-ignore
-        '& > *': {
-          margin: gap,
-        },
       },
       css,
-      flexStyles,
     ),
-  })();
+  });
 
 /**
  * Surface component
@@ -32,19 +27,10 @@ const makeStyle = ({ gap, css, flexStyles, className }) =>
  * Is both a flex container and flex member
  * @param {import('./types/Intrinsic').TJSSElement & import('./types/Intrinsic').TDiv} props
  */
-export default function Surface({
-  className = 'Surface',
-  addClass = '',
-  gap = '0',
-  css = {},
-  flex = [],
-  children,
-  ...div
-}) {
-  const flexStyles = parseFlex(flex);
-  const style = makeStyle({ gap, css, flexStyles, className });
+export default function Surface({ name = 'Surface', addClass = '', css = {}, children, ...div }) {
+  const style = makeStyle(name, css)();
   return (
-    <div {...div} style={{}} className={style[className].concat(` ${addClass}`)}>
+    <div {...div} className={`${style[name]} ${addClass}`}>
       {children}
     </div>
   );

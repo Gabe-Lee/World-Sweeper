@@ -1,29 +1,24 @@
 // @ts-check
 import React from 'react';
 import { createUseStyles } from 'react-jss';
+
 import cascade from './styles/cascade';
 import { theme } from './styles/theme';
-import { parseFlex, flexDefault } from './styles/flex';
+import { flex } from './styles/flex';
 
-const makeStyle = ({ gap, css, flexStyles, className }) =>
+const makeStyle = (name, css) =>
   createUseStyles({
-    [className]: cascade(
-      theme.standard,
-      flexDefault,
+    [name]: cascade(
+      theme.inherit,
+      // @ts-ignore
+      flex.default,
       {
         borderRadius: '0rem',
         border: 'none',
-        display: 'flex',
-        padding: gap,
-        // @ts-ignore
-        '& > *': {
-          margin: gap,
-        },
       },
       css,
-      flexStyles,
     ),
-  })();
+  });
 
 /**
  * Text component
@@ -32,19 +27,10 @@ const makeStyle = ({ gap, css, flexStyles, className }) =>
  * Is both a flex container and flex member
  * @param {import('./types/Intrinsic').HTML5Element & import('./types/Intrinsic').TJSSElement} props
  */
-export default function Text({
-  className = 'Text',
-  addClass = '',
-  gap = '0',
-  css = {},
-  flex = [],
-  children,
-  ...section
-}) {
-  const flexStyles = parseFlex(flex);
-  const style = makeStyle({ gap, css, flexStyles, className });
+export default function Text({ name = 'Text', addClass = '', css = {}, children, ...section }) {
+  const style = makeStyle(name, css)();
   return (
-    <article {...section} className={style[className].concat(` ${addClass}`)}>
+    <article {...section} className={`${style[name]} ${addClass}`}>
       {children}
     </article>
   );
