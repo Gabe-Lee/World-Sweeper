@@ -41,7 +41,7 @@ export default function Navbar(): JSX.Element {
           <Text css={navBtnTextCss}>Account</Text>
         </Button>
         <Text name="Title" css={navTitleCss}>
-          HELLO WORLDER TEST
+          HELLO WORLDER OOPS
         </Text>
       </Surface>
     </>
