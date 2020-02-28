@@ -1,16 +1,15 @@
 // @ts-check
 import React from 'react';
-import { createUseStyles } from 'react-jss';
+import { createUseStyles, Styles } from 'react-jss';
 
 import cascade from './styles/cascade';
 import { theme } from './styles/theme';
 import { flex } from './styles/flex';
 
-const makeStyle = (name, css) =>
-  createUseStyles({
+function makeStyles(name: string, css: Styles): ReturnType<typeof createUseStyles> {
+  return createUseStyles({
     [name]: cascade(
       theme.inherit,
-      // @ts-ignore
       flex.default,
       {
         borderRadius: '0rem',
@@ -19,7 +18,7 @@ const makeStyle = (name, css) =>
       css,
     ),
   });
-
+}
 /**
  * Text component
  *
@@ -27,8 +26,8 @@ const makeStyle = (name, css) =>
  * Is both a flex container and flex member
  * @param {import('./types/Intrinsic').HTML5Element & import('./types/Intrinsic').TJSSElement} props
  */
-export default function Text({ name = 'Text', addClass = '', css = {}, children, ...section }) {
-  const style = makeStyle(name, css)();
+export default function Text({ name = 'Text', addClass = '', css = {}, children, ...section }): JSX.Element {
+  const style = makeStyles(name, css)();
   return (
     <article {...section} className={`${style[name]} ${addClass}`}>
       {children}

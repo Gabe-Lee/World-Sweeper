@@ -16,7 +16,6 @@ export const navbarCss = cascade(theme.standardLight, shadow.medAll, flex.gap('0
     transform: 'translateX(-100%)',
     height: '100vh',
     flexDirection: 'column',
-    // @ts-ignore
     '&.open': { transform: 'translateX(0%)' },
   },
   [device.portrait]: {
@@ -24,7 +23,6 @@ export const navbarCss = cascade(theme.standardLight, shadow.medAll, flex.gap('0
     top: '0px',
     transform: 'translateY(-100%)',
     flexDirection: 'row',
-    // @ts-ignore
     '&.open': { transform: 'translateY(0%)' },
   },
 });

@@ -4,8 +4,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createUseStyles } from 'react-jss';
-import cascade from './generic/styles/cascade';
 
+import cascade from './generic/styles/cascade';
 import { setWindowSize } from '../redux/actions/system';
 import { main, body, normalize } from './App.style';
 import Navbar from './Navbar';
@@ -16,7 +16,7 @@ const useStyles = createUseStyles({
   Main: main,
 });
 
-const App = () => {
+export function App(): JSX.Element {
   const dispatch = useDispatch();
   const style = useStyles();
   useEffect(() => {
@@ -27,5 +27,5 @@ const App = () => {
       <Navbar />
     </main>
   );
-};
+}
 export default App;
