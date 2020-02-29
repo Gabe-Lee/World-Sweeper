@@ -1,10 +1,10 @@
-// @ts-check
 import React from 'react';
 import { createUseStyles, Styles } from 'react-jss';
 
-import cascade from './styles/cascade';
+import { cascade } from './styles/utils';
 import { theme, shadow } from './styles/theme';
 import { flex } from './styles/flex';
+import { JSSProps, ButtonProps } from './types/intrinsic';
 
 function makeStyles(name: string, css: Styles): ReturnType<typeof createUseStyles> {
   return createUseStyles({
@@ -23,13 +23,13 @@ function makeStyles(name: string, css: Styles): ReturnType<typeof createUseStyle
   });
 }
 
-/**
- * Button component
- *
- * Is both a flex container and flex member
- * @param {import('./types/Intrinsic').TButton & import('./types/Intrinsic').TJSSElement} props
- */
-export function Button({ name = 'Button', addClass = '', css = {}, children = [], ...button }): JSX.Element {
+export default function Button({
+  name = 'Button',
+  addClass = '',
+  css = {},
+  children = [],
+  ...button
+}: JSSProps & ButtonProps): JSX.Element {
   const style = makeStyles(name, css)();
   return (
     <button type="button" {...button} className={`${style[name]} ${addClass}`}>
@@ -37,4 +37,3 @@ export function Button({ name = 'Button', addClass = '', css = {}, children = []
     </button>
   );
 }
-export default Button;

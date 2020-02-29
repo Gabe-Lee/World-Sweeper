@@ -1,4 +1,5 @@
-// @ts-check
+import { Styles } from 'react-jss';
+
 export const color = {
   FG_1: 'hsl(0, 0%, 60%)',
   FG_2: 'hsl(0, 0%, 70%)',
@@ -25,12 +26,7 @@ export const color = {
   A4_5: 'hsl(18, 50%, 65%)',
 };
 
-/**
- * @typedef {keyof theme} Theme
- */
-
-/** @enum {import('csstype').Properties<string>} */
-export const theme = {
+export const theme: Record<string, Styles> = {
   inherit: { color: 'inherit', borderColor: 'inherit', backgroundColor: 'inherit' },
 
   standardDarker: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_1 },
@@ -44,12 +40,11 @@ export const theme = {
   primaryLighter: { color: color.BG_4, borderColor: color.BG_4, backgroundColor: color.PRI_5 },
 };
 
-/** @enum {import('csstype').Properties<string>} */
-export const border = {
+export const border: Record<string, Styles> = {
   pill: { borderRadius: '100000px' },
 };
-/** @enum {import('csstype').Properties<string>} */
-export const shadow = {
+
+export const shadow: Record<string, Styles> = {
   none: { boxShadow: 'none' },
   low: { boxShadow: '0px 1px 3px -1px rgba(0,0,0,0.35)' },
   med: { boxShadow: '0px 6px 4px -2px rgba(0,0,0,0.2)' },
@@ -59,8 +54,8 @@ export const shadow = {
 };
 
 const easeFast = '0.1s ease-in-out';
-/** @enum {import('csstype').Properties<string>} */
-export const transitions = {
+
+export const transitions: Record<string, Styles> = {
   color: {
     transition: `background-color ${easeFast}, color ${easeFast}, transform ${easeFast}, box-shadow ${easeFast}`,
   },

@@ -1,10 +1,10 @@
-// @ts-check
 import React from 'react';
 import { createUseStyles, Styles } from 'react-jss';
 
-import cascade from './styles/cascade';
+import { cascade } from './styles/utils';
 import { theme } from './styles/theme';
 import { flex } from './styles/flex';
+import { JSSProps, HTML5Props } from './types/intrinsic';
 
 function makeStyles(name: string, css: Styles): ReturnType<typeof createUseStyles> {
   return createUseStyles({
@@ -19,14 +19,14 @@ function makeStyles(name: string, css: Styles): ReturnType<typeof createUseStyle
     ),
   });
 }
-/**
- * Text component
- *
- * Uses HTML5 <article> under the hood for semantics
- * Is both a flex container and flex member
- * @param {import('./types/Intrinsic').HTML5Element & import('./types/Intrinsic').TJSSElement} props
- */
-export default function Text({ name = 'Text', addClass = '', css = {}, children, ...section }): JSX.Element {
+
+export default function Text({
+  name = 'Text',
+  addClass = '',
+  css = {},
+  children,
+  ...section
+}: JSSProps & HTML5Props): JSX.Element {
   const style = makeStyles(name, css)();
   return (
     <article {...section} className={`${style[name]} ${addClass}`}>
