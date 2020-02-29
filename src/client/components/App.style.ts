@@ -1,23 +1,21 @@
-import cascade from './generic/styles/cascade';
+import { Styles } from 'react-jss';
+import { cascade } from './generic/styles/utils';
 import { flex } from './generic/styles/flex';
 import { theme } from './generic/styles/theme';
 
-/** @type {import('csstype').Properties} */
-export const main = cascade(flex.default, theme.standard, {
+export const main: Styles = cascade(flex.default, theme.standard, {
   height: '100vh',
   width: '100vw',
   overflow: 'hidden',
 });
 
-/** @type {import('csstype').Properties} */
-export const body = {
+export const body: Record<string, Styles> = {
   body: cascade(theme.standardDarker, {
     fontFamily: 'Roboto',
   }),
 };
 
-/** @type {import('csstype').Properties} */
-export const normalize = {
+export const normalize: Styles = {
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
   // Settings borrowed from above
   '*, *::after, *::before': {
@@ -29,7 +27,6 @@ export const normalize = {
   },
   body: {
     margin: '0px',
-    // Custom
   },
   main: {
     display: 'block',

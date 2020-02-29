@@ -1,15 +1,15 @@
+import { Styles } from 'react-jss';
 import { theme, shadow, border } from './generic/styles/theme';
 import { flex, device } from './generic/styles/flex';
-import cascade from './generic/styles/cascade';
+import { cascade } from './generic/styles/utils';
 
-/** @type {import('csstype').Properties} */
-export const navbarCss = cascade(theme.standardLight, shadow.medAll, flex.gap('0.25rem'), {
+export const navbarCss: Styles = cascade(theme.standardLight, shadow.medAll, flex.gap('0.25rem'), {
   flexWrap: 'nowrap',
   justifyContent: 'flex-start',
   borderRadius: '0px',
   fontSize: '1.5rem',
   position: 'absolute',
-  zIndex: 100,
+  zIndex: '100',
   transition: 'transform ease-in-out 0.2s',
   [device.landscape]: {
     left: '0px',
@@ -27,8 +27,7 @@ export const navbarCss = cascade(theme.standardLight, shadow.medAll, flex.gap('0
   },
 });
 
-/** @type {import('csstype').Properties} */
-export const navButtonCss = cascade(theme.standardLighter, border.pill, flex.min, {
+export const navButtonCss: Styles = cascade(theme.standardLighter, border.pill, flex.min, {
   alignSelf: 'stretch',
   [device.phone]: cascade(flex.gap('0.35rem'), {
     fontSize: '1.8rem',
@@ -41,8 +40,7 @@ export const navButtonCss = cascade(theme.standardLighter, border.pill, flex.min
   }),
 });
 
-/** @type {import('csstype').Properties} */
-export const navMenuBtnCss = cascade(navButtonCss, {
+export const navMenuBtnCss: Styles = cascade(navButtonCss, {
   position: 'relative',
   transition: 'transform ease-in-out 0.2s',
   [device.portrait]: {
@@ -59,12 +57,12 @@ export const navMenuBtnCss = cascade(navButtonCss, {
   },
 });
 
-export const navBtnTextCss = {
+export const navBtnTextCss: Styles = {
   [device.phone]: flex.hide,
   [device.desktop]: flex.min,
 };
 
-export const navTitleCss = cascade(flex.gap('0.25rem'), {
+export const navTitleCss: Styles = cascade(flex.gap('0.25rem'), {
   textAlign: 'center',
   alignContent: 'flex-start',
   overflow: 'hidden',
@@ -90,12 +88,11 @@ export const navTitleCss = cascade(flex.gap('0.25rem'), {
   },
 });
 
-/** @type {import('csstype').Properties} */
-export const navModalCss = {
+export const navModalCss: Styles = {
   position: 'fixed',
   backgroundColor: 'rgba(0,0,0,0)',
   cursor: 'default',
-  zIndex: 90,
+  zIndex: '90',
   width: '100vw',
   height: '100vh',
   left: '0px',

@@ -1,7 +1,5 @@
-// @ts-check
 import React, { useState } from 'react';
 import { faUser, faBars, faBook, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-// import { useSelect } from '../utils';
 
 import Surface from './generic/Surface';
 import Button from './generic/Button';
@@ -10,12 +8,7 @@ import Text from './generic/Text';
 
 import { navbarCss, navButtonCss, navMenuBtnCss, navModalCss, navBtnTextCss, navTitleCss } from './Navbar.style';
 
-/**
- * Navbar component
- * @returns {JSX.Element} JSX.Element
- */
 export default function Navbar(): JSX.Element {
-  // const { window } = useSelect(store => store.system);
   const [drawer, setDrawer] = useState('closed');
   function toggleDrawer(): void {
     setDrawer(drawer === 'closed' ? 'open' : 'closed');
@@ -41,7 +34,7 @@ export default function Navbar(): JSX.Element {
           <Text css={navBtnTextCss}>Account</Text>
         </Button>
         <Text name="Title" css={navTitleCss}>
-          HELLO WORLDER YELLOW
+          HELLO WORLDER Another
         </Text>
       </Surface>
     </>

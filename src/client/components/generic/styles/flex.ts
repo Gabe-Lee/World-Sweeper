@@ -1,8 +1,7 @@
 import { cloneElement, Children } from 'react';
 import { Styles } from 'react-jss';
-import cascade from './cascade';
+import { cascade } from './utils';
 
-// @ts-check
 export const screens = {
   xs: '0px',
   sm: '420px',
@@ -40,19 +39,11 @@ export const orientations = {
   land: 'landscape',
 };
 
-/** @typedef {'landscape' | 'portrait'} Orientation */
+type StyleReturnerNum = (value: number) => Styles;
+type StyleReturnerStr = (value: string) => Styles;
+type StyleReturnerNumStr = (value: number, parentGap?: string) => Styles;
+export type StyleReturner = StyleReturnerNum | StyleReturnerStr | StyleReturnerNumStr;
 
-/**
- * @typedef {{size: string, styles: import('csstype').Properties}} Mode
- * @typedef {Mode[] | Mode} FlexModes
- */
-/**
- *
- * @param {FlexModes} modes
- * @returns {import('csstype').Properties}
- */
-
-/** @enum {import('csstype').Properties<string>} */
 export const flex = {
   default: {
     display: 'flex',
@@ -66,24 +57,24 @@ export const flex = {
   hide: { display: 'none', flex: '0 0 0px' },
   min: { display: 'flex', flex: '0 0 auto' },
   fill: { display: 'flex', flex: '1 1 auto' },
-  relative(value): Styles {
+  relative(value: number): Styles {
     return {
       display: 'flex',
       flex: `${value} ${value} auto`,
     };
   },
-  absolute(value, parentGap = '0px'): Styles {
+  absolute(value: number, parentGap = '0px'): Styles {
     if (value === 0) return { flex: '0 0 0px', display: 'none' };
     return {
       flex: `0 0 calc(${1 / value}% - ${parentGap})`,
     };
   },
-  percent(value, parentGap = '0px'): Styles {
+  percent(value: number, parentGap = '0px'): Styles {
     return {
       flex: `1 1 calc(${value}% - ${parentGap})`,
     };
   },
-  gap(value): Styles {
+  gap(value: string): Styles {
     return {
       padding: value,
       '& > *': {

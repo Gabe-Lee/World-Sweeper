@@ -1,20 +1,19 @@
-// @ts-check
-
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import system from './reducers/system';
+import system from './system/reducer';
 
 const masterReducer = combineReducers({
   system,
 });
-/**
- * @typedef {ReturnType<typeof masterReducer>} TStore
- * @typedef {import('./reducers/system').SystemState} TAllStates
- */
 
-export default createStore(
-  masterReducer,
-  applyMiddleware(thunk),
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+export type Store = ReturnType<typeof masterReducer>;
+declare global {
+  interface Window {
+    // eslint-disable-next-line no-undef
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+
+const reduxDev = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export default createStore(masterReducer, compose(applyMiddleware(thunk), reduxDev()));

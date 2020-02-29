@@ -1,12 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-// @ts-check
-/* eslint-env browser */
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createUseStyles } from 'react-jss';
 
-import cascade from './generic/styles/cascade';
-import { setWindowSize } from '../redux/actions/system';
+import { cascade } from './generic/styles/utils';
+import { setWindowSize } from '../redux/system/actions';
 import { main, body, normalize } from './App.style';
 import Navbar from './Navbar';
 // import GameClient from './GameClient';
@@ -16,7 +14,7 @@ const useStyles = createUseStyles({
   Main: main,
 });
 
-export function App(): JSX.Element {
+export default function App(): JSX.Element {
   const dispatch = useDispatch();
   const style = useStyles();
   useEffect(() => {
@@ -28,4 +26,3 @@ export function App(): JSX.Element {
     </main>
   );
 }
-export default App;

@@ -1,11 +1,11 @@
-// @ts-check
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createUseStyles, Styles } from 'react-jss';
 
-import cascade from './styles/cascade';
+import { cascade } from './styles/utils';
 import { theme } from './styles/theme';
 import { flex } from './styles/flex';
+import { JSSProps, IconProps } from './types/intrinsic';
 
 function makeStyles(name: string, css: Styles): ReturnType<typeof createUseStyles> {
   return createUseStyles({
@@ -22,14 +22,13 @@ function makeStyles(name: string, css: Styles): ReturnType<typeof createUseStyle
   });
 }
 
-/**
- * Icon component
- *
- * Acts as a wrapper for <FontAwesomeIcon>
- * Is both a flex container and flex member
- * @param {import('@fortawesome/react-fontawesome').FontAwesomeIconProps & import('./types/Intrinsic').TJSSElement} props
- */
-export default function Icon({ name = 'Icon', addClass = '', css = {}, icon, ...otherProps }): JSX.Element {
+export default function Icon({
+  name = 'Icon',
+  addClass = '',
+  css = {},
+  icon,
+  ...otherProps
+}: JSSProps & IconProps): JSX.Element {
   const style = makeStyles(name, css)();
   return <FontAwesomeIcon icon={icon} {...otherProps} className={`${style[name]} ${addClass}`} />;
 }
