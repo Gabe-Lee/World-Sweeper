@@ -1,0 +1,15 @@
+{
+  "exclude": [
+    "dist/**/*",
+    "webpack.*"
+  ],
+  "compilerOptions": {
+    "module":"CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "target": "es6",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "allowJs": true
+  },
+}

@@ -14,12 +14,12 @@ import { navbarCss, navButtonCss, navMenuBtnCss, navModalCss, navBtnTextCss, nav
  * Navbar component
  * @returns {JSX.Element} JSX.Element
  */
-export default function Navbar() {
+export default function Navbar(): JSX.Element {
   // const { window } = useSelect(store => store.system);
   const [drawer, setDrawer] = useState('closed');
-  const toggleDrawer = () => {
+  function toggleDrawer(): void {
     setDrawer(drawer === 'closed' ? 'open' : 'closed');
-  };
+  }
   return (
     <>
       {drawer === 'closed' ? '' : <Button css={navModalCss} onClick={toggleDrawer} />}
@@ -41,7 +41,7 @@ export default function Navbar() {
           <Text css={navBtnTextCss}>Account</Text>
         </Button>
         <Text name="Title" css={navTitleCss}>
-          HELLO WORLDER
+          HELLO WORLDER YELLOW
         </Text>
       </Surface>
     </>

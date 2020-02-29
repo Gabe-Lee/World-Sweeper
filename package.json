@@ -1,7 +1,7 @@
 {
   "name": "world-sweeper",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "",
   "repository": "https://github.com/Gabe-Lee/World-Sweeper",
   "author": "Gabriel Anderson",
   "license": "MIT",
@@ -13,10 +13,12 @@
     "tabWidth": 2
   },
   "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
     "extends": [
-      "airbnb",
+      "plugin:@typescript-eslint/recommended",
       "airbnb/hooks",
       "plugin:react/recommended",
+      "prettier/@typescript-eslint",
       "plugin:prettier/recommended"
     ],
     "parserOptions": {
@@ -35,7 +37,8 @@
     "ignorePatterns": [
       "dist/**/*",
       "node_modules/**/*",
-      "webpack.config.js"
+      "webpack.client.js",
+      "webpack.server.js"
     ],
     "settings": {
       "react": {
@@ -46,7 +49,8 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-react"
+      "@babel/preset-react",
+      "@babel/preset-typescript"
     ]
   },
   "jest": {
@@ -63,8 +67,13 @@
   },
   "scripts": {
     "test": "jest --runInBand",
+    "watch": "run-p watch:*",
+    "watch:watch-tests": "jest --runInBand --watch",
+    "watch:build-client": "webpack --config webpack.client.js -d --watch",
+    "watch:build-server": "webpack --config webpack.server.js -d --watch",
+    "watch:start-server": "nodemon dist/server/server.js --delay 1000ms",
+    "watch:start-client": "live-server --open=/ --watch=/dist --wait=2000 --proxy=/:http://127.0.0.1:3333",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "watch": "webpack --config webpack.config.js -d --watch & nodemon dist/server/server.js --delay 2000ms & live-server --open=/ --watch=dist --wait=3000 --proxy=/:http://127.0.0.1:3333 & jest --runInBand --watch",
     "start": "webpack --config webpack.config.js -d && node ./dist/server/server.js & live-server --open=/ --watch=dist --wait=1000 --proxy=/:http://127.0.0.1:3333",
     "build": "webpack --config webpack.config.js -p && node ./dist/server/server.js & live-server --open=/ --watch=dist --wait=1000 --proxy=/:http://127.0.0.1:3333"
   },
@@ -88,19 +97,24 @@
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
     "@types/axios": "^0.14.0",
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.2",
     "@types/jest": "^25.1.2",
+    "@types/lodash": "^4.14.149",
     "@types/node": "^13.7.0",
+    "@types/pixi.js": "^5.0.0",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "@types/react-jss": "^10.0.0",
     "@types/react-redux": "^7.1.7",
     "@types/redux": "^3.6.0",
     "@types/redux-thunk": "^2.1.0",
     "@types/supertest": "^2.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
     "babel-loader": "^8.0.6",
-    "css-loader": "^3.4.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -111,20 +125,19 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "html-loader": "^0.5.5",
+    "fancy-log": "^1.3.3",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^25.1.0",
     "live-server": "^1.2.1",
-    "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
-    "sass": "^1.25.0",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.1.3",
     "supertest": "^4.0.2",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
+    "typescript": "^3.8.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
     "webpack-node-externals": "^1.7.2",
     "yarn": "^1.22.0"
   }
