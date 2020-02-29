@@ -1,19 +1,15 @@
 {
-  "include": [
-      "src/client/**/*.tsx",
-      "src/client/**/*.ts"
-  ],
   "exclude": [
-    "node_modules",
-    "**/*.test.*",
-    "**/*.spec.*",
-    "gulpfile.js"
+    "dist/**/*",
+    "webpack.*"
   ],
   "compilerOptions": {
-    "esModuleInterop": true,
+    "module":"CommonJS",
     "moduleResolution": "node",
-    "target": "es5",
+    "esModuleInterop": true,
+    "target": "es6",
     "allowSyntheticDefaultImports": true,
-    "jsx": "react"
-  }
+    "jsx": "react",
+    "allowJs": true
+  },
 }
