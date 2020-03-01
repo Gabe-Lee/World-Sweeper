@@ -30,38 +30,39 @@ Unfortunately, the project is still in what might be considered pre-alpha stage,
 - Congratulations, you just contributed! I will add your name to the list of contibutors at the bottom of this README for all to see.
 
 ## Tech Stack
-<table align="center" width="50%">
+<table align="center">
     <thead>
         <tr>
-            <th width="33%">Front-End</th>
-            <th width="33%">Back-End</th>
-            <th width="33%">Tools</th>
+            <th width="20%">Front-End</th>
+            <th width="20%">Back-End</th>
+            <th width="20%">Tools</th>
+            <th colspan="2" width="40%"></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td colspan=2><img src="https://camo.githubusercontent.com/6effdb8103365043944db7a341e91ffe2fc234e5/68747470733a2f2f63646e2e7261776769742e636f6d2f706564726f6d616c74657a2f747970657363726970742d6c6f676f2d72656372656174696f6e2f6d61737465722f6c6f676f732f747970657363726970742d636f6c6f722d6c6f676f2e737667" alt="TypeScript"/></td>
-            <td><img src="https://webpack.js.org/d19378a95ebe6b15d5ddea281138dcf4.svg"><br>Webpack</td>
+            <td colspan=2><a title="TypeScript" href="https://www.typescriptlang.org/"><img src="https://camo.githubusercontent.com/6effdb8103365043944db7a341e91ffe2fc234e5/68747470733a2f2f63646e2e7261776769742e636f6d2f706564726f6d616c74657a2f747970657363726970742d6c6f676f2d72656372656174696f6e2f6d61737465722f6c6f676f732f747970657363726970742d636f6c6f722d6c6f676f2e737667" alt="TypeScript"/></a></td>
+            <td><a title="Webpack" href="https://webpack.js.org/"><img src="https://webpack.js.org/d19378a95ebe6b15d5ddea281138dcf4.svg"></a></td>
         </tr>
         <tr>
-            <td><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"><br>React</td>
-            <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/200px-Node.js_logo.svg.png" alt="Node.js"/><br>Node.js</td>
-            <td><img src="https://d33wubrfki0l68.cloudfront.net/7a197cfe44548cc1a3f581152af70a3051e11671/78df8/img/babel.svg"></td>
+            <td><a title="React" href="https://reactjs.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg"></a></td>
+            <td><a title="Node.js" href="https://nodejs.org/en/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/200px-Node.js_logo.svg.png" alt="Node.js"/></a></td>
+            <td><a title="Babel" href="https://babeljs.io/"><img src="https://d33wubrfki0l68.cloudfront.net/7a197cfe44548cc1a3f581152af70a3051e11671/78df8/img/babel.svg"></a></td>
         </tr>
         <tr>
-            <td><img src="https://redux.js.org/img/redux.svg"><br>Redux</td>
-            <td>Express</td>
-            <td><img src="https://camo.githubusercontent.com/b8606e6a237d8e7e7800067f0f739129da1fa6f8/687474703a2f2f7365656b6c6f676f2e636f6d2f696d616765732f4a2f6a6573742d6c6f676f2d463939303145424246372d7365656b6c6f676f2e636f6d2e706e67"><br>Jest</td>
+            <td><a title="Redux" href="https://redux.js.org/"><img src="https://redux.js.org/img/redux.svg"></a></td>
+            <td align="center"><h1><a title="Express" href="https://expressjs.com/">Express</a></h1></td>
+            <td><a title="Jest" href="https://jestjs.io/"><img src="https://camo.githubusercontent.com/b8606e6a237d8e7e7800067f0f739129da1fa6f8/687474703a2f2f7365656b6c6f676f2e636f6d2f696d616765732f4a2f6a6573742d6c6f676f2d463939303145424246372d7365656b6c6f676f2e636f6d2e706e67"></a></td>
         </tr>
         <tr>
-            <td><img alt="CSS-in-JS" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiBjbGFzcz0iYzAyMTIgYzAyNyI+PHBhdGggZmlsbD0idHJhbnNwYXJlbnQiIGQ9Ik0wIDEzaDk1djk0SDB6Ij48L3BhdGg+PHBhdGggZmlsbD0iI2VlZSIgZD0iTTk2LDEwNy41SDB2LTk1aDk2VjEwNy41eiBNMS44MDMsMTA1LjcwNWg5Mi4zOTN2LTkxLjQxSDEuODAzQzEuODAzLDE0LjI5NSwxLjgwMywxMDUuNzA1LDEuODAzLDEwNS43MDV6Ij48L3BhdGg+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTY0LjI5NCA4Ni41NzRjMS45MDMgMy4xMDggNC4zNzkgNS4zOTIgOC43NTkgNS4zOTIgMy42NzkgMCA2LjAyOS0xLjgzOSA2LjAyOS00LjM3OSAwLTMuMDQ0LTIuNDE0LTQuMTIzLTYuNDY0LTUuODk0bC0yLjIxOS0uOTUyYy02LjQwNy0yLjcyOS0xMC42NjMtNi4xNDktMTAuNjYzLTEzLjM3OCAwLTYuNjU5IDUuMDczLTExLjcyOCAxMy4wMDMtMTEuNzI4IDUuNjQ1IDAgOS43MDQgMS45NjUgMTIuNjI4IDcuMTA5bC02LjkxNCA0LjQzOWMtMS41MjItMi43My0zLjE2NC0zLjgwNS01LjcxNC0zLjgwNS0yLjYwMSAwLTQuMjQ5IDEuNjUtNC4yNDkgMy44MDUgMCAyLjY2MyAxLjY1IDMuNzQyIDUuNDU5IDUuMzkybDIuMjIuOTUxYzcuNTQ0IDMuMjM1IDExLjgwMyA2LjUzMyAxMS44MDMgMTMuOTQ4IDAgNy45OTMtNi4yNzkgMTIuMzczLTE0LjcxMyAxMi4zNzMtOC4yNDYgMC0xMy41NzMtMy45MjktMTYuMTgtOS4wNzkgMC0uMDAyIDcuMjE1LTQuMTk0IDcuMjE1LTQuMTk0em0zMi4wMjkgMGMxLjkwMyAzLjEwOCA0LjM3OSA1LjM5MiA4Ljc1OSA1LjM5MiAzLjY3OSAwIDYuMDI5LTEuODM5IDYuMDI5LTQuMzc5IDAtMy4wNDQtMi40MTQtNC4xMjMtNi40NjQtNS44OTRsLTIuMjE5LS45NTJjLTYuNDA3LTIuNzI5LTEwLjY2My02LjE0OS0xMC42NjMtMTMuMzc4IDAtNi42NTkgNS4wNzMtMTEuNzI4IDEzLjAwMy0xMS43MjggNS42NDUgMCA5LjcwNCAxLjk2NSAxMi42MjggNy4xMDlsLTYuOTE0IDQuNDM5Yy0xLjUyMi0yLjczLTMuMTY0LTMuODA1LTUuNzE0LTMuODA1LTIuNjAxIDAtNC4yNDkgMS42NS00LjI0OSAzLjgwNSAwIDIuNjYzIDEuNjUgMy43NDIgNS40NTkgNS4zOTJsMi4yMi45NTFDMTE1Ljc0MSA3Ni43NiAxMjAgODAuMDU4IDEyMCA4Ny40NzNjMCA3Ljk5My02LjI3OSAxMi4zNzMtMTQuNzEzIDEyLjM3My04LjI0NiAwLTEzLjU3My0zLjkyOS0xNi4xOC05LjA3OWw3LjIxNi00LjE5M3ptLTYzLjM5My43N2MxLjM5NSAyLjQ3NSAyLjY2NCA0LjU2NyA1LjcxNCA0LjU2NyAyLjkxNyAwIDQuNzU3LTEuMTQxIDQuNzU3LTUuNTc5VjU2LjE0MWg4Ljg3OHYzMC4zMWMwIDkuMTkzLTUuMzkgMTMuMzc4LTEzLjI1OCAxMy4zNzgtNy4xMDkgMC0xMS4yMjYtMy42NzktMTMuMzItOC4xMWw3LjIyOS00LjM3NWMwLS4wMDEgMCAwIDAgMHoiPjwvcGF0aD48L3N2Zz4="/><br>CSS-in-JS</td>
-            <td>[Deployment?]</td>
-            <td >Enzyme</td>
+            <td align="center"><a title="JSS" href="https://cssinjs.org/?v=v10.0.4"><img alt="JSS" src="https://sendeyo.com/up/d/f8b6c7a347"/></a></td>
+            <td><a title="PostgreSQL" href="https://www.postgresql.org/"><img src="https://www.postgresql.org/media/img/about/press/elephant.png"></a></td>
+            <td align="center"><h1><a title="Enzyme" href="https://github.com/enzymejs/enzyme">Enzyme</a></h1></td>
         </tr>
         <tr>
-            <td ><img src="https://www.pixijs.com/wp/wp-content/uploads/pixijs-v5-logo-sml2x.png"></td>
-            <td><img src="https://www.postgresql.org/media/img/about/press/elephant.png"><br>PostgreSQL</td>
-            <td >Supertest</td>
+            <td><a title="Pixi.js" href="https://www.pixijs.com/"><img src="https://www.pixijs.com/wp/wp-content/uploads/pixijs-v5-logo-sml2x.png"></a></td>
+            <td></td>
+            <td align="center"><h1><a title="Supertest" href="https://github.com/visionmedia/supertest">Supertest</a></h1></td>
         </tr>
     </tbody>
 </table>
