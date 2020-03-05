@@ -1,7 +1,7 @@
 import { Styles } from 'react-jss';
-import { theme, shadow, border, color } from './generic/styles/theme';
-import { flex, device } from './generic/styles/flex';
-import { cascade } from './generic/styles/utils';
+import { theme, shadow, border, color } from '../generic/styles/theme';
+import { flex, device } from '../generic/styles/flex';
+import { cascade } from '../generic/styles/utils';
 
 export const gameClientCss: Styles = cascade({
   position: 'fixed',

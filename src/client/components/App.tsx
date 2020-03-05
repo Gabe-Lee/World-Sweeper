@@ -7,7 +7,7 @@ import { cascade } from './generic/styles/utils';
 import { setWindowSize } from '../redux/system/actions';
 import { main, body, normalize } from './App.style';
 import Navbar from './Navbar';
-import GameClient from './GameClient';
+import GameClient from './Game/GameClient';
 
 const useStyles = createUseStyles({
   '@global': cascade(normalize, body),

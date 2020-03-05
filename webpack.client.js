@@ -1,9 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 const ENTRY = path.resolve(__dirname, 'src', 'client', 'index.tsx');
-const HTML = path.resolve(__dirname, 'src', 'client', 'index.html');
-const DIST = path.resolve(__dirname, 'dist', 'client');
+const DIST = path.resolve(__dirname, 'dist', 'static');
 const NAME = 'client.js';
 
 module.exports = {
@@ -15,11 +13,6 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: HTML,
-    }),
-  ],
   entry: ENTRY,
   output: {
     filename: NAME,

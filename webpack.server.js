@@ -1,9 +1,12 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const ENTRY = path.resolve(__dirname, 'src', 'server', 'index.ts');
-const DIST = path.resolve(__dirname, 'dist', 'server');
+const DIST = path.resolve(__dirname, 'dist');
 const NAME = 'server.js';
+const STATIC_SRC = path.resolve(__dirname, 'src', 'server', 'static');
+const STATIC_DIST = path.resolve(__dirname, 'dist', 'static');
 
 module.exports = {
   name: 'server',
@@ -37,4 +40,10 @@ module.exports = {
       },
     ],
   },
+
+  plugins: [
+    new CopyPlugin([
+      { from: STATIC_SRC, to: STATIC_DIST},
+    ]),
+  ],
 };
