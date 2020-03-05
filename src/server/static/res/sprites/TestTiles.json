@@ -1,0 +1,105 @@
+{
+	"meta": {
+		"image": "TestTiles.png",
+		"size": {"w":16,"h":192},
+		"scale": "1"
+	},
+	"frames": {
+		"UNKNOWN": {
+      "frame": {"x":0,"y":0,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "FLAGGED": {
+      "frame": {"x":0,"y":16,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "EXPLODED": {
+      "frame": {"x":0,"y":32,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "ZERO": {
+      "frame": {"x":0,"y":48,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "ONE": {
+      "frame": {"x":0,"y":64,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "TWO": {
+      "frame": {"x":0,"y":80,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "THREE": {
+      "frame": {"x":0,"y":96,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "FOUR": {
+      "frame": {"x":0,"y":112,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "FIVE": {
+      "frame": {"x":0,"y":128,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "SIX": {
+      "frame": {"x":0,"y":144,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "SEVEN": {
+      "frame": {"x":0,"y":160,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    },
+    "EIGHT": {
+      "frame": {"x":0,"y":176,"w":16,"h":16},
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+      "sourceSize": {"w":16,"h":16},
+      "pivot": {"x":0,"y":0}
+    }
+	}
+}

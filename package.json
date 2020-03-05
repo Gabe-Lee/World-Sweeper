@@ -26,7 +26,10 @@
       "prettier/@typescript-eslint",
       "plugin:prettier/recommended"
     ],
-    "plugins": ["@typescript-eslint", "prettier"],
+    "plugins": [
+      "@typescript-eslint",
+      "prettier"
+    ],
     "parserOptions": {
       "ecmaVersion": 2018,
       "sourceType": "module",
@@ -35,10 +38,33 @@
       }
     },
     "rules": {
-      "import/extensions": ["error", "never"],
-      "react/jsx-filename-extension": [2, { "extensions": [".jsx", ".tsx"] }],
-      "import/no-extraneous-dependencies": [2, { "devDependencies": ["**/test.tsx", "**/test.ts"] }],
-      "@typescript-eslint/indent": [2, 2],
+      "import/extensions": [
+        "error",
+        "never"
+      ],
+      "react/jsx-filename-extension": [
+        2,
+        {
+          "extensions": [
+            ".jsx",
+            ".tsx"
+          ]
+        }
+      ],
+      "import/no-extraneous-dependencies": [
+        2,
+        {
+          "devDependencies": [
+            "**/test.tsx",
+            "**/test.ts"
+          ]
+        }
+      ],
+      "@typescript-eslint/indent": [
+        2,
+        2
+      ],
+      "no-unused-expressions": "off",
       "no-underscore-dangle": "off",
       "react/prop-types": "off",
       "react/jsx-props-no-spreading": "off",
@@ -55,7 +81,10 @@
         "version": "detect"
       },
       "import/parsers": {
-        "@typescript-eslint/parser": [".ts", ".tsx"]
+        "@typescript-eslint/parser": [
+          ".ts",
+          ".tsx"
+        ]
       },
       "import/resolver": {
         "typescript": {}
@@ -67,6 +96,10 @@
       "@babel/preset-env",
       "@babel/preset-react",
       "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-optional-chaining"
     ]
   },
   "jest": {
@@ -87,7 +120,7 @@
     "watch:watch-tests": "jest --runInBand --watch",
     "watch:build-client": "webpack --config webpack.client.js -d --watch",
     "watch:build-server": "webpack --config webpack.server.js -d --watch",
-    "watch:start-server": "nodemon dist/server/server.js --delay 1000ms",
+    "watch:start-server": "nodemon dist/server.js --delay 1000ms",
     "watch:start-client": "live-server --open=/ --watch=/dist --wait=2000 --proxy=/:http://127.0.0.1:3333",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "start": "webpack --config webpack.config.js -d && node ./dist/server/server.js & live-server --open=/ --watch=dist --wait=1000 --proxy=/:http://127.0.0.1:3333",
@@ -111,6 +144,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
@@ -131,6 +166,7 @@
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
     "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.1.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -152,8 +188,6 @@
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
     "typescript": "^3.8.2",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-node-externals": "^1.7.2",

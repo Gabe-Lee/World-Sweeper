@@ -1,0 +1,17 @@
+{
+	"meta": {
+		"image": "test.png",
+		"size": {"w":16,"h":192},
+		"scale": "1"
+	},
+	"frames": {
+		"TestTiles.png":
+		{
+			"frame": {"x":0,"y":0,"w":16,"h":192},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":16,"h":192},
+			"sourceSize": {"w":16,"h":192}
+		}
+	}
+}

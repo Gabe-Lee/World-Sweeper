@@ -13,3 +13,10 @@ export interface JSSProps {
   addClass?: string;
   name?: string;
 }
+
+export interface IconButtonProps {
+  left?: boolean;
+  right?: boolean;
+  buttonSize?: string;
+  iconSize?: string;
+}

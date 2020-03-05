@@ -24,10 +24,18 @@ export const color = {
   A4_3: 'hsl(18, 50%, 45%)',
   A4_4: 'hsl(18, 50%, 55%)',
   A4_5: 'hsl(18, 50%, 65%)',
+
+  DANGER: 'hsl(0, 50%, 50%)',
+  WARNING: 'hsl(60, 50%, 50%)',
+  SAFETY: 'hsl(120, 50%, 50%)',
+  INFO: 'hsl(210, 50%, 50%)',
+  SPECIAL: 'hsl(255, 50%, 50%)',
+  INVISIBLE: 'rgba(0, 0, 0, 0)',
 };
 
 export const theme: Record<string, Styles> = {
   inherit: { color: 'inherit', borderColor: 'inherit', backgroundColor: 'inherit' },
+  transparent: { color: color.INVISIBLE, borderColor: color.INVISIBLE, backgroundColor: color.INVISIBLE },
 
   standardDarker: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_1 },
   standardDark: { color: color.FG_3, borderColor: color.FG_3, backgroundColor: color.BG_2 },
@@ -51,6 +59,9 @@ export const shadow: Record<string, Styles> = {
   high: { boxShadow: '0px 6px 5px 1px rgba(0,0,0,0.1)' },
   medUp: { boxShadow: '0px -2px 4px -2px rgba(0,0,0,0.2)' },
   medAll: { boxShadow: '0px 0px 4px -1px rgba(0,0,0,0.2)' },
+  text: { textShadow: '0px 0px 2px rgba(0,0,0,0.3)' },
+  textHeavy: { textShadow: '0px 0px 3px rgba(0,0,0,0.5)' },
+  image: { filter: 'drop-shadow(0 0 3px rgba(0,0,0,0.5))' },
 };
 
 const easeFast = '0.1s ease-in-out';
